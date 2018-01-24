@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dogcore/dogcore.iml" filepath="$PROJECT_DIR$/dogcore/dogcore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dogroot.iml" filepath="$PROJECT_DIR$/dogroot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dogwebroot/dogwebroot.iml" filepath="$PROJECT_DIR$/dogwebroot/dogwebroot.iml" />
+    </modules>
+  </component>
+</project>
