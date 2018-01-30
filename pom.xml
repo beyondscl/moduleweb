@@ -13,6 +13,7 @@
         <module>dogcore</module>
         <module>dogwebroot</module>
         <module>dogauth</module>
+        <module>dogdb</module>
     </modules>
 
 </project>
