@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--cache 是二级缓存，flushCache="true"在语句中关闭一级缓存 -->
     <!-- 开启延迟加载 -->
     <settings>
         <!-- lazyLoadingEnabled:延迟加载启动，默认是false -->
@@ -11,7 +12,10 @@
         <setting name="aggressiveLazyLoading" value="false"/>
 
         <!-- 开启二级缓存，默认是false -->
-        <setting name="cacheEnabled" value="true"/>
+        <setting name="cacheEnabled" value="false"/>
+
+        <!--一级缓存-->
+        <!--<setting name="localCacheScope" value="SESSION"/>-->
 
         <!-- 打印查询语句 -->
         <setting name="logImpl" value="LOG4J"/>

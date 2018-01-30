@@ -10,7 +10,7 @@ import lombok.Data;
  * doc:
  */
 @Data
-public class User {
+public class User extends Page{
     private String id;
     private String name;
     private String password;

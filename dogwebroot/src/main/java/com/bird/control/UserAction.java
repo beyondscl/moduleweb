@@ -1,7 +1,7 @@
 package com.bird.control;
 
 import com.bird.domain.User;
-import com.bird.service.UserService;
+import com.bird.service.user.UserService;
 import com.bird.util.Token;
 import org.junit.Assert;
 import org.springframework.stereotype.Controller;
@@ -35,7 +35,12 @@ public class UserAction {
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(@ModelAttribute User user,
                         HttpServletRequest request) {
-//        user = userService.getUserByAccount(user);
+        User u = new User();
+        u.setId(UUID.randomUUID().toString());
+        u.setName("ABSDFSDF");
+        userService.saveObject(u);
+
+
         if (null == user)
             return "login";
         request.setAttribute("token", Token.getToken(user));
@@ -72,11 +77,9 @@ public class UserAction {
         iUesr.setAge(11);
         userService.addUser(iUesr);
         System.out.println("-------------------------");
-        User user = new User();
-        user.setId("1");
-        User result = userService.getUser(user);
-        User result2 = userService.getUser(user);
-        User result3 = userService.getUser(user);
+        User result = userService.getUser(iUesr);
+        User result2 = userService.getUser(iUesr);
+        User result3 = userService.getUser(iUesr);
         Assert.assertNotNull(result);
         Assert.assertNotNull(result2);
         Assert.assertNotNull(result3);

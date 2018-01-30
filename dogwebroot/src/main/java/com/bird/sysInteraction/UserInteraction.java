@@ -1,9 +1,6 @@
 package com.bird.sysInteraction;
 
-import com.bird.domain.User;
-import com.bird.service.UserService;
-
-import java.util.List;
+import com.bird.service.user.UserService;
 
 /**
  * author: 牛虻.

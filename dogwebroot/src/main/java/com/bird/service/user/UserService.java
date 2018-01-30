@@ -1,6 +1,7 @@
-package com.bird.service;
+package com.bird.service.user;
 
 import com.bird.domain.User;
+import com.bird.service.base.BaseService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +16,7 @@ import java.util.List;
  * 传统本地实现接口
  */
 @Service
-public interface UserService {
+public interface UserService extends BaseService{
 
     User getUser(User user);
 

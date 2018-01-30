@@ -1,7 +1,9 @@
-package com.bird.service;
+package com.bird.service.user;
 
+import com.bird.dao.BaseDao;
 import com.bird.dao.UserDao;
 import com.bird.domain.User;
+import com.bird.service.base.BaseServiceImpl;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -14,14 +16,15 @@ import java.util.List;
  * doc:
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl<T> extends BaseServiceImpl implements UserService {
 
     @Resource
     private UserDao userDao;
 
-//    @Resource
-//    private JdbcTemplate jdbcTemplate;
-
+    @Resource
+    public void setBaseDao(BaseDao baseDao) {
+        super.setBaseDao(this.userDao);
+    }
     public User getUser(User user) {
         return userDao.getUser(user);
     }
@@ -35,8 +38,6 @@ public class UserServiceImpl implements UserService {
 
     public void addUser(User user) {
         userDao.addUser(user);
-//        System.out.println(1/0);
-//        throw new RuntimeException("抛出异常查看事务是否成功");
     }
 
     public User getUserByAccount(User user) {
@@ -46,4 +47,10 @@ public class UserServiceImpl implements UserService {
     public void testTx(User user) {
 
     }
+
+    public long getCount(Class className) {
+        return 0;
+    }
+
+
 }
