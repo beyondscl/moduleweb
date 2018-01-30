@@ -6,5 +6,5 @@ package com.bird.sysInteraction;
  * email:pettygadfly@gmail.com
  * doc:
  */
-public class SysCoreInteraction {
+public interface SysCoreInteraction {
 }

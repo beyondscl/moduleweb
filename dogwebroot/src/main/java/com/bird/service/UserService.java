@@ -26,4 +26,6 @@ public interface UserService {
 
     User getUserByAccount(User user);
 
+    public void testTx(User user);
+
 }

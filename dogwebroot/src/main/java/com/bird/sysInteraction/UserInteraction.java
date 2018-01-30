@@ -12,24 +12,6 @@ import java.util.List;
  * doc:
  * 外部实现接口，用户接口
  */
-public class UserInteraction implements BaseInteraction, UserService {
-    public User getUser(User user) {
-        return null;
-    }
+public interface UserInteraction extends BaseInteraction, UserService {
 
-    public List<User> getAllUser() {
-        return null;
-    }
-
-    public void test() {
-
-    }
-
-    public void addUser(User user) {
-
-    }
-
-    public User getUserByAccount(User user) {
-        return null;
-    }
 }

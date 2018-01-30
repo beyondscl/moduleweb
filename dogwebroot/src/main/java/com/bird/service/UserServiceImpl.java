@@ -40,4 +40,9 @@ public class UserServiceImpl implements UserService {
     public User getUserByAccount(User user) {
         return userDao.getUserByAccount(user);
     }
+
+    public void testTx(User user) {
+        userDao.addUser(user);
+        throw new RuntimeException("抛出异常查看事务是否成功");
+    }
 }

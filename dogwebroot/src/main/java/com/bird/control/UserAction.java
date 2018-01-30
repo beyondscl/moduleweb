@@ -70,7 +70,7 @@ public class UserAction {
         iUesr.setId(UUID.randomUUID().toString());
         iUesr.setName("hello");
         iUesr.setAge(11);
-        userService.addUser(iUesr);
+        userService.testTx(iUesr);
         System.out.println("-------------------------");
         User user = new User();
         user.setId("1");
