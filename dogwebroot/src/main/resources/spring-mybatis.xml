@@ -109,20 +109,6 @@
     </aop:config>
 
 
-    <!--???-->
-    <!--<bean id="userHandlerInterceptor"-->
-    <!--class="com.dog.controller.system.filter.UserHandlerInterceptor"/>-->
-    <!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">-->
-    <!--<property name="interceptors">-->
-    <!--<list>-->
-    <!--<ref bean="userHandlerInterceptor"/>-->
-    <!--&lt;!&ndash;-->
-    <!--<ref bean="handlerInterceptor2"/>-->
-    <!--&ndash;&gt;-->
-    <!--</list>-->
-    <!--</property>-->
-    <!--</bean>-->
-
     <!-- 配置事务异常封装 -->
     <bean id="persistenceExceptionTranslationPostProcessor"
           class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>

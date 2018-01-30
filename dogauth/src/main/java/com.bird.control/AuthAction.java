@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * time:2018/1/30
  * email:pettygadfly@gmail.com
  * doc:
+ *
  */
 @Controller
 public class AuthAction {

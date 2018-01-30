@@ -9,4 +9,18 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <!--url拦截器,省略在web.xml配置filter-->
+    <bean id="userHandlerInterceptor"
+          class="com.bird.control.AuthAction"/>
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+        <property name="interceptors">
+            <list>
+                <ref bean="userHandlerInterceptor"/>
+                <!--
+                <ref bean="handlerInterceptor2"/>
+                -->
+            </list>
+        </property>
+    </bean>
+
 </beans>
