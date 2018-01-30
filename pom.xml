@@ -12,6 +12,7 @@
     <modules>
         <module>dogcore</module>
         <module>dogwebroot</module>
+        <module>dogauth</module>
     </modules>
 
 </project>

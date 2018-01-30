@@ -2,6 +2,8 @@ package com.bird.service;
 
 import com.bird.domain.User;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,6 +23,7 @@ public interface UserService {
 
     void test();
 
+//    @Transactional(propagation = Propagation.REQUIRED)
     void addUser(User user);
 
 

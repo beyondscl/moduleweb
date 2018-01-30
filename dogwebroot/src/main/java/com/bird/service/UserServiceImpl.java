@@ -35,6 +35,8 @@ public class UserServiceImpl implements UserService {
 
     public void addUser(User user) {
         userDao.addUser(user);
+//        System.out.println(1/0);
+//        throw new RuntimeException("抛出异常查看事务是否成功");
     }
 
     public User getUserByAccount(User user) {
@@ -42,7 +44,6 @@ public class UserServiceImpl implements UserService {
     }
 
     public void testTx(User user) {
-        userDao.addUser(user);
-        throw new RuntimeException("抛出异常查看事务是否成功");
+
     }
 }
