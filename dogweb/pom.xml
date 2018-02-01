@@ -15,7 +15,7 @@
     <properties>
         <!-- 编码集 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- spring版本 -->
+        <!-- spring版本 更高版本的spring需要jdk>6-->
         <springframework.version>4.3.7.RELEASE</springframework.version>
     </properties>
 
