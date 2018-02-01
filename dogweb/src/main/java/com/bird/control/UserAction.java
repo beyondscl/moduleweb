@@ -38,6 +38,7 @@ public class UserAction {
         User u = new User();
         u.setId(UUID.randomUUID().toString());
         u.setName("ABSDFSDF");
+        u.setPassword("ABSDFSDF");
         userService.saveObject(u);
 
 

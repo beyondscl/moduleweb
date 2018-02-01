@@ -24,17 +24,17 @@
     </select>
     <insert id="addUser" parameterType="com.bird.domain.User"
             flushCache="true" statementType="PREPARED">
-        INSERT INTO USER (id, name, age) VALUES (#{id}, #{name}, #{age})
+        INSERT INTO USER (id, name, password) VALUES (#{id}, #{name}, #{password})
     </insert>
 
     <insert id="saveObject" parameterType="com.bird.domain.User"
             flushCache="true" statementType="PREPARED">
-        INSERT INTO USER (id, name, age) VALUES (#{id}, #{name}, #{age})
+        INSERT INTO USER (id, name, password) VALUES (#{id}, #{name}, #{password})
     </insert>
 
     <update id="update" parameterType="com.bird.domain.User"
             flushCache="true" statementType="PREPARED">
-        update USER set  id = #{id}, name = #{name}, age = #{age} where id = #{id}
+        update USER set  id = #{id}, name = #{name}, password = #{password} where id = #{id}
     </update>
 
 </mapper>
