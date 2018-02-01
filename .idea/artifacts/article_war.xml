@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="article:war">
+    <output-path>$PROJECT_DIR$/dogwebueditor/target</output-path>
+    <root id="archive" name="dog-web-ueditor.war">
+      <element id="artifact" artifact-name="article:war exploded" />
+    </root>
+  </artifact>
+</component>

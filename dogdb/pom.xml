@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>com-dog-dbutil</artifactId>
+    <artifactId>dog-dbutil</artifactId>
 
 
     <properties>
@@ -45,15 +45,9 @@
         </dependency>
         <dependency>
             <groupId>com.dog</groupId>
-            <artifactId>dog-web-root</artifactId>
+            <artifactId>dog-root</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>com.dog</groupId>
-            <artifactId>dog-web-root</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
 
         <!--代码生成器-->
         <dependency>
@@ -76,6 +70,11 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>${mybatis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
         </dependency>
     </dependencies>
 

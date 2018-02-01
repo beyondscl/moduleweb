@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/dogcore/core.iml" filepath="$PROJECT_DIR$/dogcore/core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project.iml" filepath="$PROJECT_DIR$/project.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dogwebroot/web.iml" filepath="$PROJECT_DIR$/dogwebroot/web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dogauth/dog-auth.iml" filepath="$PROJECT_DIR$/dogauth/dog-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dogcore/dog-core.iml" filepath="$PROJECT_DIR$/dogcore/dog-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dogdb/dog-dbutil.iml" filepath="$PROJECT_DIR$/dogdb/dog-dbutil.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dog-root.iml" filepath="$PROJECT_DIR$/dog-root.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dogueditor/dog-ueditor.iml" filepath="$PROJECT_DIR$/dogueditor/dog-ueditor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dogweb/dog-web.iml" filepath="$PROJECT_DIR$/dogweb/dog-web.iml" />
     </modules>
   </component>
 </project>

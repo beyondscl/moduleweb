@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="dogueditor:war">
+    <output-path>$PROJECT_DIR$/dogueditor/target</output-path>
+    <root id="archive" name="dog-ueditor-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="dogueditor:war exploded" />
+    </root>
+  </artifact>
+</component>

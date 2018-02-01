@@ -7,9 +7,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>dog-web-root</artifactId>
+    <artifactId>dog-web</artifactId>
     <packaging>war</packaging>
-    <name>dog-web-root Maven Webapp</name>
+    <name>dog-web Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
     <properties>

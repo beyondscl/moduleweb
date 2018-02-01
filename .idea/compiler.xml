@@ -22,24 +22,20 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="core" />
+        <module name="dog-auth" />
         <module name="dog-core" />
-        <module name="dog-web-root" />
-        <module name="dogwebroot" />
-        <module name="web" />
+        <module name="dog-dbutil" />
+        <module name="dog-ueditor" />
+        <module name="dog-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="core" target="1.5" />
+      <module name="dog-auth" target="1.5" />
       <module name="dog-core" target="1.5" />
+      <module name="dog-dbutil" target="1.5" />
       <module name="dog-root" target="1.5" />
-      <module name="dog-web-root" target="1.5" />
-      <module name="dogcore" target="1.5" />
-      <module name="dogroot" target="1.5" />
-      <module name="dogwebbase" target="1.5" />
-      <module name="dogwebroot" target="1.5" />
-      <module name="project" target="1.5" />
-      <module name="web" target="1.5" />
+      <module name="dog-ueditor" target="1.5" />
+      <module name="dog-web" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
