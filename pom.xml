@@ -11,9 +11,10 @@
 
     <modules>
         <module>dogcore</module>
-        <module>dogwebroot</module>
+        <module>dogweb</module>
         <module>dogauth</module>
         <module>dogdb</module>
+        <module>dogueditor</module>
     </modules>
 
 </project>
