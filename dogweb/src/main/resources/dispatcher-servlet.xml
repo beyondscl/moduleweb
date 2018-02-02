@@ -21,9 +21,11 @@
     不然事务无法自动加入,无法执行add，del,up操作.配合application。xml中配置使用
     -->
     <context:component-scan base-package="com.bird">
-        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation"
+                                expression="org.springframework.stereotype.Controller"/>
         <!--必须出去service包-->
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.stereotype.Service"/>
     </context:component-scan>
 
     <!--要么这里配置，要么自定义filter不经过spring-->

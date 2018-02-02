@@ -16,6 +16,7 @@ public interface BaseService<T> {
 
     /**
      * 基本操作
+     *
      * @param o
      * @return
      */

@@ -1,4 +1,4 @@
-package com.bird.service.user;
+package com.bird.service;
 
 import com.bird.dao.BaseDao;
 import com.bird.dao.UserDao;
@@ -25,6 +25,7 @@ public class UserServiceImpl<T> extends BaseServiceImpl implements UserService {
     public void setBaseDao(BaseDao baseDao) {
         super.setBaseDao(this.userDao);
     }
+
     public User getUser(User user) {
         return userDao.getUser(user);
     }

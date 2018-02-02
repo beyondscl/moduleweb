@@ -1,6 +1,5 @@
 package test.util;
 
-import com.bird.util.Token;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;

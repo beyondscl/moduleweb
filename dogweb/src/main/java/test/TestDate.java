@@ -12,7 +12,7 @@ import org.junit.Test;
  */
 public class TestDate {
     @Test
-    public void testTime(){
+    public void testTime() {
         System.out.println(DateTime.now());
     }
 }

@@ -17,6 +17,7 @@ public class TableField {
     private String key;
     private String defValue;
     private String extra;
+    private String comment;
 
     public TableField(ResultSet rs, String tableName) throws SQLException {
         String filed = rs.getString("FIELD");
@@ -25,12 +26,14 @@ public class TableField {
         String key = rs.getString("KEY");
         String defValue = rs.getString("DEFAULT");
         String extra = rs.getString("EXTRA");
+        String comment = rs.getString("COMMENT");
         this.filed = filed;
         this.type = type;
         this.isAllowNull = isAllowNull;
         this.key = key;
         this.defValue = defValue;
         this.extra = extra;
+        this.comment = comment;
         this.tableName = tableName;
     }
 }

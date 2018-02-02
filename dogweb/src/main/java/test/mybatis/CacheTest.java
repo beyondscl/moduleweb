@@ -2,21 +2,14 @@ package test.mybatis;
 
 import com.bird.dao.UserDao;
 import com.bird.domain.User;
-import com.bird.service.base.BaseService;
-import com.bird.service.user.UserService;
+import com.bird.service.UserService;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionManager;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.Resource;
 
-import java.util.List;
 import java.util.UUID;
 
 /**

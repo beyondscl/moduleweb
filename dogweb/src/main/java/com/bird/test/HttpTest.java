@@ -15,7 +15,6 @@ import org.apache.http.util.EntityUtils;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,8 +59,8 @@ public class HttpTest {
         response = httpclient.execute(httpost);
         entity = response.getEntity();
 
-        String result = EntityUtils.toString(entity,"utf-8");
-        System.out.println(result+"------------------->");
+        String result = EntityUtils.toString(entity, "utf-8");
+        System.out.println(result + "------------------->");
         System.out.println("Login form get: " + response.getStatusLine());
         if (entity != null) {
             entity.consumeContent();

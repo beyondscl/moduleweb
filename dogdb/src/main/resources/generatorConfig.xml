@@ -54,11 +54,11 @@
         <!-- 表名对应生成的实体 -->
         <table schema="User" tableName="user"
                domainObjectName="UserDomain"/>
-               <!--enableCountByExample="true"-->
-               <!--enableUpdateByExample="true"-->
-               <!--enableDeleteByExample="true"-->
-               <!--enableSelectByExample="true"-->
-               <!--selectByExampleQueryId="true"-->
+        <!--enableCountByExample="true"-->
+        <!--enableUpdateByExample="true"-->
+        <!--enableDeleteByExample="true"-->
+        <!--enableSelectByExample="true"-->
+        <!--selectByExampleQueryId="true"-->
         <!--/>-->
     </context>
 </generatorConfiguration>

@@ -23,7 +23,7 @@ public class Start {
     //查看库中所有表
     private static String GET_TABLES = "select table_name from information_schema.tables  where table_schema= 'world' ";
     //查看表信息
-    private static String SHOW_TABLE_INFO = "desc ";
+    private static String SHOW_TABLE_INFO = "show full fields from ";//比desc能获取更多字段信息
     //过滤表
 
     /**
@@ -56,7 +56,6 @@ public class Start {
             rs = statement.executeQuery();
             ArrayList<TableField> list = new ArrayList<TableField>();
             while (rs.next()) {
-                rs.getMetaData();
                 TableField tablePojo = new TableField(rs, tableName);
                 list.add(tablePojo);
             }

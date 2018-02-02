@@ -1,4 +1,4 @@
-package com.bird.util;
+package util;
 
 /**
  * author: 牛虻.

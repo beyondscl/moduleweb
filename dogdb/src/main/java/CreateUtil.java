@@ -26,6 +26,7 @@ public class CreateUtil {
                 throw new RuntimeException("空字段");
             }
             String tableName = tablePojos.get(0).getTableName();
+            tableName = getTuoFengString(tableName);
             tableName = StringUtil.firstCharToUpper(tableName);
             String fileName = System.getProperty("user.dir") + path + "/" + tableName + ".java";
             File file = new File(fileName);
@@ -41,15 +42,17 @@ public class CreateUtil {
 
             //请使用@lombok.Data注解，我这里就不设置set/get
             for (TableField tablePojo : tablePojos) {
-                String filed = tablePojo.getFiled();
+                String field = tablePojo.getFiled();
+                field = getTuoFengString(field);
                 String type = tablePojo.getType();
                 String isAllowNull = tablePojo.getIsAllowNull();
                 String key = tablePojo.getKey();
                 String defValue = tablePojo.getDefValue();
                 String extra = tablePojo.getExtra();
+                String comment = tablePojo.getComment();
 
                 sb.append(" //注释: ");
-                sb.append(extra);
+                sb.append(comment);
                 sb.append(" 默认值: ");
                 sb.append(defValue);
                 sb.append(" 是否可为空 ");
@@ -58,17 +61,17 @@ public class CreateUtil {
                 //目前先支持 int char varchar
                 if (type.contains("char")) {
                     sb.append(" private String ");
-                    sb.append(filed);//需要做处理
+                    sb.append(field);//需要做处理
                 } else if (type.contains("int")) {
                     sb.append(" private int ");//long?
-                    sb.append(filed);//需要做处理
+                    sb.append(field);//需要做处理
                 } else if (type.contains("float")) {
                     sb.append(" private double ");//long?
-                    sb.append(filed);//需要做处理
-                } else {
+                    sb.append(field);//需要做处理
+                } else if (type.contains("blob")) {
                     System.out.println("不识别字段类型:" + type);
-                    sb.append(" private " + type);//long?
-                    sb.append(filed);//需要做处理
+                    sb.append(" private byte[] ");//long?
+                    sb.append(field);//需要做处理
                 }
                 sb.append(";");
                 sb.append("\r\n");
@@ -84,6 +87,22 @@ public class CreateUtil {
         }
     }
 
+    /**
+     * ***——**——** 转为驼峰
+     *
+     * @param field
+     * @return
+     */
+    private static String getTuoFengString(String field) {
+        field = field.toLowerCase();
+        String[] fieldsub = field.split("_");
+        String str = "";
+        for (String s : fieldsub) {
+            str += StringUtil.firstCharToUpper(s);
+        }
+        return StringUtil.firstCharToLower(str);
+    }
+
 
     public static void createController(String path, ArrayList<TableField> tablePojos) throws SQLException {
         try {
@@ -91,6 +110,7 @@ public class CreateUtil {
                 throw new RuntimeException("空字段");
             }
             String tableName = tablePojos.get(0).getTableName();
+            tableName = getTuoFengString(tableName);
             tableName = StringUtil.firstCharToUpper(tableName);
             String fileName = System.getProperty("user.dir") + path + "/" + tableName + "Action.java";
             File file = new File(fileName);
@@ -103,6 +123,7 @@ public class CreateUtil {
             sb.append("import org.springframework.web.bind.annotation.RequestMapping;\n");
             sb.append("import javax.annotation.Resource;\n");
             sb.append("import com.bird.service." + tableName + "Service;\n");
+            sb.append("@Controller\n");
             sb.append("@RequestMapping(value = \"/" + StringUtil.firstCharToLower(tableName) + "Action\")\n");
             sb.append("public class " + tableName + "Action{\r\n");
 
@@ -158,6 +179,7 @@ public class CreateUtil {
                 throw new RuntimeException("空字段");
             }
             String tableName = tablePojos.get(0).getTableName();
+            tableName = getTuoFengString(tableName);
             tableName = StringUtil.firstCharToUpper(tableName);
             String fileName = System.getProperty("user.dir") + path + "/" + tableName + "Dao.java";
             File file = new File(fileName);
@@ -187,6 +209,7 @@ public class CreateUtil {
                 throw new RuntimeException("空字段");
             }
             String tableName = tablePojos.get(0).getTableName();
+            tableName = getTuoFengString(tableName);
             tableName = StringUtil.firstCharToUpper(tableName);
             String fileName = System.getProperty("user.dir") + path + "/" + tableName + "Service.java";
             File file = new File(fileName);
@@ -218,6 +241,7 @@ public class CreateUtil {
                 throw new RuntimeException("空字段");
             }
             String tableName = tablePojos.get(0).getTableName();
+            tableName = getTuoFengString(tableName);
             tableName = StringUtil.firstCharToUpper(tableName);
             String fileName = System.getProperty("user.dir") + path + "/" + tableName + "ServiceImpl.java";
             File file = new File(fileName);

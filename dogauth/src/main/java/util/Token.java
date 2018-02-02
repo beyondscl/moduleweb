@@ -1,4 +1,4 @@
-package com.bird.util;
+package util;
 
 import com.bird.domain.User;
 import org.joda.time.DateTime;

@@ -1,15 +1,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
+    request.setAttribute("basePath", basePath);
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>完整demo</title>
+    <title>文章</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <script type="text/javascript" charset="utf-8" src="ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="${basePath}/article/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${basePath}/article/ueditor.all.min.js"> </script>
     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
     <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
-    <script type="text/javascript" charset="utf-8" src="lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${basePath}/article/lang/zh-cn/zh-cn.js"></script>
 
     <style type="text/css">
         div{
@@ -19,8 +25,40 @@
 </head>
 <body>
 <div>
-    <h1>完整demo</h1>
+    <select>
+        <option>原创</option>
+        <option>转载</option>
+    </select>
+</div>
+<div>
+    <!--text/html 浏览器会解析相应格式-->
+    <!--text/plain 纯文本格式-->
     <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+</div>
+<div>
+    <div>
+        <label>分类</label>
+        <select>
+            <option>默认目录</option>
+            <option>这里是你的目录</option>
+        </select>
+    </div>
+    <div>
+        <label>关键字</label>
+        <input value="java 源码分析"/>
+    </div>
+    <div>
+        <label>权限</label>
+        <select>
+            <option>公开</option>
+            <option>私有</option>
+            <option>订阅(关注)我</option>
+        </select>
+    </div>
+</div>
+<div>
+    <input type="button" value="暂存">
+    <input type="button" value="发布">
 </div>
 <div id="btns">
     <div>

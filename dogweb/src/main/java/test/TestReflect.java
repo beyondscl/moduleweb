@@ -7,9 +7,9 @@ package test;
  * doc:
  */
 public class TestReflect {
-    private String name;
-    protected String name2;
     public String name3;
+    protected String name2;
+    private String name;
 
     private TestReflect() {
 
