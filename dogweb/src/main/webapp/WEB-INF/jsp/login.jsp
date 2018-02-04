@@ -14,8 +14,8 @@
 <body>
 <form action="/user/login" method="post"
       enctype="application/x-www-form-urlencoded">
-    <input id="name" name="name" value="" type="text">
-    <input id="password" name="password" value="" type="password">
+    <input id="name" name="name" value="ABSDFSDF" type="text">
+    <input id="password" name="password" value="ABSDFSDF" type="password">
     <input id="token" name="token" value="" type="hidden">
     <input type="submit" value="提交"/>
 </form>

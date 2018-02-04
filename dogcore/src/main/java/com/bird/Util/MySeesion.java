@@ -2,6 +2,7 @@ package com.bird.Util;
 
 import org.json.JSONObject;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 
 
@@ -21,5 +22,13 @@ public class MySeesion {
 
     public static void setUserByToken(String token, JSONObject user) {
         map.put(token, user);
+    }
+
+    public static void setToken(HttpServletRequest request) {
+        request.setAttribute("token", request.getParameter("token"));
+    }
+
+    public static Object getUserValue(HttpServletRequest request, String key) {
+        return getUserByToken(request.getParameter("token")).get(key);
     }
 }

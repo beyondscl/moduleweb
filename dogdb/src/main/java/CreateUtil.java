@@ -453,8 +453,6 @@ public class CreateUtil {
             sb.append("#{");
             sb.append(getTuoFengString(tablePojos.get(i).getFiled()));
             sb.append("}");
-            if (i != tablePojos.size() - 1)
-                sb.append(", ");
             sb.append("\n</if>\n");
         }
         return sb;

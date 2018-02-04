@@ -35,7 +35,7 @@ public interface BaseService<T> {
 
     List<T> findByIds(String[] ids);
 
-    T findByObject(Object O);
+    List<T> findByObject(Object O);
 
     List<T> queryByPage(Object O);
 

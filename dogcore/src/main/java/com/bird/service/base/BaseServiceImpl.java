@@ -1,6 +1,7 @@
 package com.bird.service.base;
 
 import com.bird.dao.BaseDao;
+import com.bird.domain.Page;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -47,12 +48,12 @@ public class BaseServiceImpl<T> implements BaseService {
         return baseDao.findById(id);
     }
 
-    public Object findByObject(Object O) {
-        return baseDao.findByObject(O);
+    public List findByObject(Object o) {
+        return baseDao.findByObject(o);
     }
 
-    public List queryByPage(Object O) {
-        return baseDao.findByPage(O);
+    public List queryByPage(Object o) {
+        return baseDao.findByPage(o);
     }
 
     /**

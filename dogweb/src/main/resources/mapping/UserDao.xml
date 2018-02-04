@@ -60,10 +60,10 @@
         from user
         where 1=1
         <if test='null != id'>
-            and id = #{id},
+            and id = #{id}
         </if>
         <if test='null != name'>
-            and name = #{name},
+            and name = #{name}
         </if>
         <if test='null != password'>
             and password = #{password}

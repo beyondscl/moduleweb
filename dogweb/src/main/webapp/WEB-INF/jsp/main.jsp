@@ -17,6 +17,7 @@
 <body>
 main.jsp
 <h5>传送门</h5>
-<a href="/articleAction/toAdd?token=${token}">博客</a>
+<a href="/articleAction/toAdd?token=${token}">添加博客</a><br>
+<a href="/articleAction/index?token=${token}">博客首页</a>
 </body>
 </html>

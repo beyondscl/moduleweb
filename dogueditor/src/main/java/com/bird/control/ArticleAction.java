@@ -1,16 +1,19 @@
 package com.bird.control;
 
+import com.bird.Util.IdGen;
 import com.bird.Util.MySeesion;
 import com.bird.Util.TimeUtil;
 import com.bird.domain.Article;
 import com.bird.service.ArticleService;
-import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 @RequestMapping(value = "/articleAction")
@@ -23,20 +26,40 @@ public class ArticleAction {
         return "";
     }
 
-    @RequestMapping(value = "/toAdd")
-    public String toAdd() {
+    @RequestMapping(value = "/index")
+    public String index(HttpServletRequest request) {
+        MySeesion.setToken(request);
+        Article article = new Article();
+        article.setArticleType(1);
+        article.setPrivilege(1);
+        article.setCurrentPage(article.getCurrentPage());
+        request.setAttribute("data", articleService.queryByPage(article));
         return "article/index";
     }
 
+    @RequestMapping(value = "/toAdd")
+    public String toAdd(HttpServletRequest request) {
+        MySeesion.setToken(request);
+        return "article/add";
+    }
+
     @RequestMapping(value = "/save")
-    public String save(Article article, HttpServletRequest request) {
-        Assert.notNull(article, "not be null");
+    public void save(Article article, HttpServletRequest request,
+                     HttpServletResponse response) {
+        MySeesion.setToken(request);
+        article.setId(IdGen.getId());
+        article.setAuthorId(MySeesion.getUserValue(request, "id").toString());
         article.setCreateTime(TimeUtil.getDateStr());
         articleService.saveObject(article);
-        String token = (String) request.getAttribute("token");
-        JSONObject user = MySeesion.getUserByToken(token);
-        user.get("uid");//这里应该写在配置文件中，万一以后变量呢？增加修改了呢？
-        return "";
+        try {
+            article.setCurrentPage(0);
+            request.setAttribute("data", articleService.queryByPage(article));
+            request.getRequestDispatcher("/articleAction/index").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @RequestMapping(value = "/delete")

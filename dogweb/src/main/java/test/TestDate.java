@@ -13,6 +13,7 @@ import org.junit.Test;
 public class TestDate {
     @Test
     public void testTime() {
+        String a = new String("asdf".getBytes());
         System.out.println(DateTime.now());
     }
 }

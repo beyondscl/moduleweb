@@ -112,47 +112,100 @@ from article
         from article
         where 1=1
         <if test='null != id'>
-            and id = #{id},
+            and id = #{id}
         </if>
         <if test='null != articleDirId'>
-            and article_dir_id = #{articleDirId},
+            and article_dir_id = #{articleDirId}
         </if>
         <if test='null != authorId'>
-            and author_id = #{authorId},
+            and author_id = #{authorId}
         </if>
         <if test='null != articleType'>
-            and article_type = #{articleType},
+            and article_type = #{articleType}
         </if>
         <if test='null != title'>
-            and title = #{title},
+            and title = #{title}
         </if>
         <if test='null != content'>
-            and content = #{content},
+            and content = #{content}
         </if>
         <if test='null != privilege'>
-            and privilege = #{privilege},
+            and privilege = #{privilege}
         </if>
         <if test='null != keyWords'>
-            and key_words = #{keyWords},
+            and key_words = #{keyWords}
         </if>
         <if test='null != discussType'>
-            and discuss_type = #{discussType},
+            and discuss_type = #{discussType}
         </if>
         <if test='null != createTime'>
-            and create_time = #{createTime},
+            and create_time = #{createTime}
         </if>
         <if test='null != updateTime'>
-            and update_time = #{updateTime},
+            and update_time = #{updateTime}
         </if>
         <if test='null != updateTimes'>
-            and update_times = #{updateTimes},
+            and update_times = #{updateTimes}
         </if>
         <if test='null != viewTimes'>
-            and view_times = #{viewTimes},
+            and view_times = #{viewTimes}
         </if>
         <if test='null != effective'>
             and effective = #{effective}
         </if>
+
+    </select>
+    <select id="findByPage" parameterType="com.bird.domain.Article"
+            resultType="com.bird.domain.Article">
+        select
+        id, article_dir_id, author_id, article_type, title,
+        content, privilege, key_words, discuss_type,
+        create_time, update_time, update_times, view_times,
+        effective
+        from article where 1=1
+        <if test='null != id'>
+            and id = #{id}
+        </if>
+        <if test='null != articleDirId'>
+            and article_dir_id = #{articleDirId}
+        </if>
+        <if test='null != authorId'>
+            and author_id = #{authorId}
+        </if>
+        <if test='null != articleType'>
+            and article_type = #{articleType}
+        </if>
+        <if test='null != title'>
+            and title = #{title}
+        </if>
+        <if test='null != content'>
+            and content = #{content}
+        </if>
+        <if test='null != privilege'>
+            and privilege = #{privilege}
+        </if>
+        <if test='null != keyWords'>
+            and key_words = #{keyWords}
+        </if>
+        <if test='null != discussType'>
+            and discuss_type = #{discussType}
+        </if>
+        <if test='null != createTime'>
+            and create_time = #{createTime}
+        </if>
+        <if test='null != updateTime'>
+            and update_time = #{updateTime}
+        </if>
+        <if test='null != updateTimes'>
+            and update_times = #{updateTimes}
+        </if>
+        <if test='null != viewTimes'>
+            and view_times = #{viewTimes}
+        </if>
+        <if test='null != effective'>
+            and effective = #{effective}
+        </if>
+        limit ${startRow}, ${endRow}
 
     </select>
 </mapper> 

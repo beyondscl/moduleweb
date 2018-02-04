@@ -16,6 +16,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 
@@ -37,14 +38,12 @@ public class UserAction {
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(@ModelAttribute User user,
                         HttpServletRequest request) {
-        User u = new User();
-        u.setId(UUID.randomUUID().toString());
-        u.setName("ABSDFSDF");
-        userService.saveObject(u);
-        if (null == user)
+        List<User> listUser = userService.findByObject(user);
+        if (null == listUser || listUser.size() == 0)
             return "login";
-        String token = Token.getToken(u);
-        MySeesion.setUserByToken(token,new JSONObject(u));
+        user = listUser.get(0);
+        String token = Token.getToken(user);
+        MySeesion.setUserByToken(token, new JSONObject(user));
         request.setAttribute("token", token);
         return "main";
 
