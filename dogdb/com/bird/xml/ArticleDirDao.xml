@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" 
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd"><mapper namespace="com.bird.dao.ArticleDirDao"> 
-<insert id="saveObject" parameterType="com.bird.domain.ArticleDir"> 
+<resultMap id="mapToObject" type="com.bird.domain.ArticleDir"> <result column="id" property="id"/>
+<result column="author_id" property="authorId"/>
+<result column="dir_name" property="dirName"/>
+<result column="create_time" property="createTime"/>
+<result column="update_time" property="updateTime"/>
+<result column="effective" property="effective"/>
+
+</resultMap><insert id="saveObject" parameterType="com.bird.domain.ArticleDir"> 
 INSERT into article_dir 
 ( 
  id, author_id, dir_name, create_time, update_time,  
@@ -47,14 +54,14 @@ delete from article_dir
      #{id}
  </foreach>
 </delete> 
-<select id="findById"  parameterType="java.lang.String" resultType="com.bird.domain.ArticleDir" >
+<select id="findById"  parameterType="java.lang.String" resultMap="mapToObject" >
 select 
  id, author_id, dir_name, create_time, update_time,  
 effective 
 from article_dir 
  where id =#{id}
 </select> 
-<select id="findByIds" resultType="com.bird.domain.ArticleDir" >
+<select id="findByIds" resultMap="mapToObject" >
 select 
  id, author_id, dir_name, create_time, update_time,  
 effective 
@@ -65,7 +72,7 @@ from article_dir
      #{id}
  </foreach>
 </select> 
-<select id="findByObject" parameterType="com.bird.domain.ArticleDir" resultType="com.bird.domain.ArticleDir" >
+<select id="findByObject" parameterType="com.bird.domain.ArticleDir" resultMap="mapToObject" >
 select 
  id, author_id, dir_name, create_time, update_time,  
 effective 
@@ -90,5 +97,32 @@ and update_time = #{updateTime}
 and effective = #{effective}
 </if>
  
+</select> 
+<select id="findByPage" parameterType="com.bird.domain.ArticleDir" resultMap="mapToObject" >
+select 
+ id, author_id, dir_name, create_time, update_time,  
+effective 
+from article_dir 
+where 1=1 
+ <if test='null != id'>
+and id = #{id}
+</if>
+<if test='null != authorId'>
+and author_id = #{authorId}
+</if>
+<if test='null != dirName'>
+and dir_name = #{dirName}
+</if>
+<if test='null != createTime'>
+and create_time = #{createTime}
+</if>
+<if test='null != updateTime'>
+and update_time = #{updateTime}
+</if>
+<if test='null != effective'>
+and effective = #{effective}
+</if>
+ 
+ limit ${startRow}, ${endRow} 
 </select> 
 </mapper> 

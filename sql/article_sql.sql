@@ -22,7 +22,7 @@ CREATE TABLE article (
   article_type   INT     DEFAULT 1
   COMMENT '1原创，2转载',
   title          VARCHAR(100) COMMENT '文章标题',
-  content        BLOB COMMENT '内容，带格式的，直接包含了附件，图片等连接',
+  content        TEXT COMMENT '内容，带格式的，直接包含了附件，图片等连接',
   privilege      INT     DEFAULT 1
   COMMENT '权限类型0私有，1公开，2关注我的',
   key_words      VARCHAR(100) COMMENT '关键字',

@@ -28,7 +28,6 @@ public class ArticleAction {
 
     @RequestMapping(value = "/index")
     public String index(HttpServletRequest request) {
-        MySeesion.setToken(request);
         Article article = new Article();
         article.setArticleType(1);
         article.setPrivilege(1);
@@ -39,14 +38,13 @@ public class ArticleAction {
 
     @RequestMapping(value = "/toAdd")
     public String toAdd(HttpServletRequest request) {
-        MySeesion.setToken(request);
         return "article/add";
     }
 
+    //刷新页面再次保存，需要解决bug
     @RequestMapping(value = "/save")
     public void save(Article article, HttpServletRequest request,
                      HttpServletResponse response) {
-        MySeesion.setToken(request);
         article.setId(IdGen.getId());
         article.setAuthorId(MySeesion.getUserValue(request, "id").toString());
         article.setCreateTime(TimeUtil.getDateStr());

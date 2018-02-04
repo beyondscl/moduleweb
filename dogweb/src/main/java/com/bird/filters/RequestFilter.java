@@ -60,6 +60,7 @@ public class RequestFilter implements Filter {
             if (null == token || !Token.authToken(token)) {
 //                针对表单请求非法不含
                 log.debug(uri + "+" + ip);
+                request.setAttribute("token",token);
                 request.getRequestDispatcher("/user/toLogin").forward(servletRequest, servletResponse);
             } else {
                 filterChain.doFilter(servletRequest, servletResponse);

@@ -69,8 +69,10 @@ public class CreateUtil {
                     sb.append(" private double ");//long?
                     sb.append(field);//需要做处理
                 } else if (type.contains("blob")) {
-                    System.out.println("不识别字段类型:" + type);
                     sb.append(" private byte[] ");//long?
+                    sb.append(field);//需要做处理
+                } else if (type.contains("text")) {
+                    sb.append(" private String ");//long?
                     sb.append(field);//需要做处理
                 }
                 sb.append(";");
@@ -301,6 +303,12 @@ public class CreateUtil {
                     "        \"http://mybatis.org/dtd/mybatis-3-mapper.dtd\">");
             sb.append("<mapper namespace=\"com.bird.dao." + tableName + "Dao\"> \n");
 
+            //map转对象因为 字段名称是带下划线的
+            sb.append("<resultMap id=\"mapToObject\" type=\"com.bird.domain." + tableName + "\">");
+            sb.append(getClounProper(tablePojos));
+            sb.append("\n");
+            sb.append("</resultMap>");
+
             sb.append("<insert id=\"saveObject\" parameterType=\"com.bird.domain." + tableName + "\"> \n");
             sb.append("INSERT into " + realTableName.toLowerCase() + " \n");
             sb.append("( \n");
@@ -333,7 +341,7 @@ public class CreateUtil {
                     " </foreach>\n");
             sb.append("</delete> \n");
 
-            sb.append("<select id=\"findById\"  parameterType=\"java.lang.String\" resultType=\"com.bird.domain." + tableName + "\" >\n");
+            sb.append("<select id=\"findById\"  parameterType=\"java.lang.String\" resultMap=\"mapToObject\" >\n");
             sb.append("select \n");
             sb.append(getCloumnNames(tablePojos));
             sb.append(" \n");
@@ -341,7 +349,7 @@ public class CreateUtil {
             sb.append(" where id =#{id}\n");
             sb.append("</select> \n");
 
-            sb.append("<select id=\"findByIds\" resultType=\"com.bird.domain." + tableName + "\" >\n");
+            sb.append("<select id=\"findByIds\" resultMap=\"mapToObject\" >\n");
             sb.append("select \n");
             sb.append(getCloumnNames(tablePojos));
             sb.append(" \n");
@@ -353,7 +361,7 @@ public class CreateUtil {
                     " </foreach>\n");
             sb.append("</select> \n");
 
-            sb.append("<select id=\"findByObject\" parameterType=\"com.bird.domain." + tableName + "\" resultType=\"com.bird.domain." + tableName + "\" >\n");
+            sb.append("<select id=\"findByObject\" parameterType=\"com.bird.domain." + tableName + "\" resultMap=\"mapToObject\" >\n");
             sb.append("select \n");
             sb.append(getCloumnNames(tablePojos));
             sb.append(" \n");
@@ -361,6 +369,17 @@ public class CreateUtil {
             sb.append("where 1=1 \n");
             sb.append(queryloumnNames(tablePojos));
             sb.append(" \n");
+            sb.append("</select> \n");
+
+            sb.append("<select id=\"findByPage\" parameterType=\"com.bird.domain." + tableName + "\" resultMap=\"mapToObject\" >\n");
+            sb.append("select \n");
+            sb.append(getCloumnNames(tablePojos));
+            sb.append(" \n");
+            sb.append("from " + realTableName.toLowerCase() + " \n");
+            sb.append("where 1=1 \n");
+            sb.append(queryloumnNames(tablePojos));
+            sb.append(" \n");
+            sb.append(" limit ${startRow}, ${endRow} \n");
             sb.append("</select> \n");
 
 
@@ -454,6 +473,22 @@ public class CreateUtil {
             sb.append(getTuoFengString(tablePojos.get(i).getFiled()));
             sb.append("}");
             sb.append("\n</if>\n");
+        }
+        return sb;
+    }
+
+    /**
+     * map转对象
+     *
+     * @param tablePojos
+     * @return
+     */
+    private static StringBuffer getClounProper(ArrayList<TableField> tablePojos) {
+        StringBuffer sb = new StringBuffer(" ");
+        for (int i = 0; i < tablePojos.size(); i++) {
+            String field = tablePojos.get(i).getFiled();
+            sb.append("<result column=\"" + field + "\" property=\"" + getTuoFengString(field) + "\"/>");
+            sb.append("\n");
         }
         return sb;
     }

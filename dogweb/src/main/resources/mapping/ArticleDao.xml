@@ -2,6 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bird.dao.ArticleDao">
+    <resultMap id="mapToObject" type="com.bird.domain.Article">
+        <result column="id" property="id"/>
+        <result column="article_dir_id" property="articleDirId"/>
+        <result column="author_id" property="authorId"/>
+        <result column="article_type" property="articleType"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="privilege" property="privilege"/>
+        <result column="key_words" property="keyWords"/>
+        <result column="discuss_type" property="discussType"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_times" property="updateTimes"/>
+        <result column="view_times" property="viewTimes"/>
+        <result column="effective" property="effective"/>
+
+    </resultMap>
     <insert id="saveObject" parameterType="com.bird.domain.Article">
 INSERT into article 
 ( 
@@ -80,7 +97,7 @@ delete from article
         </foreach>
     </delete>
     <select id="findById" parameterType="java.lang.String"
-            resultType="com.bird.domain.Article">
+            resultMap="mapToObject">
 select 
  id, article_dir_id, author_id, article_type, title,  
 content, privilege, key_words, discuss_type,  
@@ -89,7 +106,7 @@ effective
 from article 
  where id =#{id}
 </select>
-    <select id="findByIds" resultType="com.bird.domain.Article">
+    <select id="findByIds" resultMap="mapToObject">
         select
         id, article_dir_id, author_id, article_type, title,
         content, privilege, key_words, discuss_type,
@@ -103,7 +120,7 @@ from article
         </foreach>
     </select>
     <select id="findByObject" parameterType="com.bird.domain.Article"
-            resultType="com.bird.domain.Article">
+            resultMap="mapToObject">
         select
         id, article_dir_id, author_id, article_type, title,
         content, privilege, key_words, discuss_type,
@@ -156,13 +173,14 @@ from article
 
     </select>
     <select id="findByPage" parameterType="com.bird.domain.Article"
-            resultType="com.bird.domain.Article">
+            resultMap="mapToObject">
         select
         id, article_dir_id, author_id, article_type, title,
         content, privilege, key_words, discuss_type,
         create_time, update_time, update_times, view_times,
         effective
-        from article where 1=1
+        from article
+        where 1=1
         <if test='null != id'>
             and id = #{id}
         </if>
@@ -205,7 +223,7 @@ from article
         <if test='null != effective'>
             and effective = #{effective}
         </if>
-        limit ${startRow}, ${endRow}
 
+        limit ${startRow}, ${endRow}
     </select>
 </mapper> 

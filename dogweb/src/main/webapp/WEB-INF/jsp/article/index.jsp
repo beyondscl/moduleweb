@@ -24,9 +24,8 @@
         <tr>
             <td><input type="checkbox" value="${item.id}"></td>
             <td>${item.title}</td>
-            <td>${item.contentStr}</td>
-            <td>${item.createTime}/>
-            </td>
+            <td>${item.content}</td>
+            <td>${item.createTime}</td>
         </tr>
     </c:forEach>
 </table>

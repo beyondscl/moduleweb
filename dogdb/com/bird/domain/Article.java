@@ -13,7 +13,7 @@ public class Article {
  //注释: 文章标题 默认值: null 是否可为空 YES 
  private String title; 
  //注释: 内容，带格式的，直接包含了附件，图片等连接 默认值: null 是否可为空 YES 
- private byte[] content; 
+ private String content; 
  //注释: 权限类型0私有，1公开，2关注我的 默认值: 1 是否可为空 YES 
  private int privilege; 
  //注释: 关键字 默认值: null 是否可为空 YES 

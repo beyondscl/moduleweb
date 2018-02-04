@@ -1,4 +1,4 @@
-import org.junit.Test;
+package com.bird.Util;
 
 import java.io.UnsupportedEncodingException;
 
