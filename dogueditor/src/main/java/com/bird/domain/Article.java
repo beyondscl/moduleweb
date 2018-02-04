@@ -31,5 +31,5 @@ public class Article {
     //注释: 查阅次数 默认值: 0 是否可为空 YES
     private int viewTimes;
     //注释: 是否有效1有效;0无效 默认值: 1 是否可为空 YES
-    private String effective;
+    private int effective;
 }

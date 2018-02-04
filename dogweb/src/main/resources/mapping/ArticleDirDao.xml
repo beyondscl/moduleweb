@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bird.dao.ArticleDirDao">
+    <insert id="saveObject" parameterType="com.bird.domain.ArticleDir">
+        INSERT into article_dir
+        (
+        id, author_id, dir_name, create_time, update_time,
+        effective)
+        values
+        (
+        #{id}, #{authorId}, #{dirName}, #{createTime}, #{updateTime},
+        #{effective})
+    </insert>
+    <update id="updateObject" parameterType="com.bird.domain.ArticleDir">
+        update article_dir set
+        <if test='null != id'>
+            id = #{ id} ,
+        </if>
+        <if test='null != authorId'>
+            author_id = #{ authorId} ,
+        </if>
+        <if test='null != dirName'>
+            dir_name = #{ dirName} ,
+        </if>
+        <if test='null != createTime'>
+            create_time = #{ createTime} ,
+
+        </if>
+        <if test='null != updateTime'>
+            update_time = #{ updateTime} ,
+        </if>
+        <if test='null != effective'>
+            effective = #{ effective}
+        </if>
+
+        where id = #{id}
+    </update>
+    <delete id="deleteById" parameterType="java.lang.String">
+        delete from article_dir
+        where id =#{id}
+    </delete>
+    <delete id="deleteByIds">
+        delete from article_dir
+        where id IN
+        <foreach collection="array" item="id" index="index"
+                 open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="findById" parameterType="java.lang.String"
+            resultType="com.bird.domain.ArticleDir">
+        select
+        id, author_id, dir_name, create_time, update_time,
+        effective
+        from article_dir
+        where id =#{id}
+    </select>
+    <select id="findByIds" resultType="com.bird.domain.ArticleDir">
+        select
+        id, author_id, dir_name, create_time, update_time,
+        effective
+        from article_dir
+        where id IN
+        <foreach collection="array" item="id" index="index"
+                 open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+    <select id="findByObject" parameterType="com.bird.domain.ArticleDir"
+            resultType="com.bird.domain.ArticleDir">
+        select
+        id, author_id, dir_name, create_time, update_time,
+        effective
+        from article_dir
+        where 1=1
+        <if test='null != id'>
+            and id = #{id},
+        </if>
+        <if test='null != authorId'>
+            and author_id = #{authorId},
+        </if>
+        <if test='null != dirName'>
+            and dir_name = #{dirName},
+        </if>
+        <if test='null != createTime'>
+            and create_time = #{createTime},
+        </if>
+        <if test='null != updateTime'>
+            and update_time = #{updateTime},
+        </if>
+        <if test='null != effective'>
+            and effective = #{effective}
+        </if>
+
+    </select>
+</mapper> 

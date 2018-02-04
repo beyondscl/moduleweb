@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bird.dao.ArticleDao">
+
+    <insert id="saveObject" parameterType="com.bird.domain.Article">
+        INSERT into article(
+        keyName,
+        )
+        VALUES (
+        #{keyName}
+        )
+
+    </insert>
+    <update id="updateObject" parameterType="com.bird.domain.Article">
+    UPDATE SET article
+    set xx ==#{xx}
+    WHERE  id = #{id}
+    </update>
+    <delete id="deleteById"></delete>
+    <delete id="deleteObject"></delete>
+
+    <select id="findById"></select>
+    <select id="findByObject"></select>
+    <select id="queryByPage"></select>
+</mapper>

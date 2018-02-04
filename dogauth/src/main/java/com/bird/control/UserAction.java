@@ -1,7 +1,9 @@
 package com.bird.control;
 
+import com.bird.Util.MySeesion;
 import com.bird.domain.User;
 import com.bird.service.UserService;
+import org.json.JSONObject;
 import org.junit.Assert;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -39,11 +41,11 @@ public class UserAction {
         u.setId(UUID.randomUUID().toString());
         u.setName("ABSDFSDF");
         userService.saveObject(u);
-
-
         if (null == user)
             return "login";
-        request.setAttribute("token", Token.getToken(user));
+        String token = Token.getToken(u);
+        MySeesion.setUserByToken(token,new JSONObject(u));
+        request.setAttribute("token", token);
         return "main";
 
     }

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bird.dao.ArticleDao">
+    <insert id="saveObject" parameterType="com.bird.domain.Article">
+INSERT into article 
+( 
+ id, article_dir_id, author_id, article_type, title,  
+content, privilege, key_words, discuss_type,  
+create_time, update_time, update_times, view_times,  
+effective) 
+values 
+( 
+ #{id}, #{articleDirId}, #{authorId}, #{articleType}, #{title},  
+#{content}, #{privilege}, #{keyWords}, #{discussType},  
+#{createTime}, #{updateTime}, #{updateTimes}, #{viewTimes},  
+#{effective}) 
+</insert>
+    <update id="updateObject" parameterType="com.bird.domain.Article">
+        update article set
+        <if test='null != id'>
+            id = #{ id} ,
+        </if>
+        <if test='null != articleDirId'>
+            article_dir_id = #{ articleDirId} ,
+        </if>
+        <if test='null != authorId'>
+            author_id = #{ authorId} ,
+        </if>
+        <if test='null != articleType'>
+            article_type = #{ articleType} ,
+
+        </if>
+        <if test='null != title'>
+            title = #{ title} ,
+        </if>
+        <if test='null != content'>
+            content = #{ content} ,
+        </if>
+        <if test='null != privilege'>
+            privilege = #{ privilege} ,
+
+        </if>
+        <if test='null != keyWords'>
+            key_words = #{ keyWords} ,
+        </if>
+        <if test='null != discussType'>
+            discuss_type = #{ discussType} ,
+        </if>
+        <if test='null != createTime'>
+            create_time = #{ createTime} ,
+
+        </if>
+        <if test='null != updateTime'>
+            update_time = #{ updateTime} ,
+        </if>
+        <if test='null != updateTimes'>
+            update_times = #{ updateTimes} ,
+        </if>
+        <if test='null != viewTimes'>
+            view_times = #{ viewTimes} ,
+
+        </if>
+        <if test='null != effective'>
+            effective = #{ effective}
+        </if>
+
+        where id = #{id}
+    </update>
+    <delete id="deleteById" parameterType="java.lang.String">
+delete from article 
+ where id =#{id}
+</delete>
+    <delete id="deleteByIds">
+        delete from article
+        where id IN
+        <foreach collection="array" item="id" index="index"
+                 open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="findById" parameterType="java.lang.String"
+            resultType="com.bird.domain.Article">
+select 
+ id, article_dir_id, author_id, article_type, title,  
+content, privilege, key_words, discuss_type,  
+create_time, update_time, update_times, view_times,  
+effective 
+from article 
+ where id =#{id}
+</select>
+    <select id="findByIds" resultType="com.bird.domain.Article">
+        select
+        id, article_dir_id, author_id, article_type, title,
+        content, privilege, key_words, discuss_type,
+        create_time, update_time, update_times, view_times,
+        effective
+        from article
+        where id IN
+        <foreach collection="array" item="id" index="index"
+                 open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+    <select id="findByObject" parameterType="com.bird.domain.Article"
+            resultType="com.bird.domain.Article">
+        select
+        id, article_dir_id, author_id, article_type, title,
+        content, privilege, key_words, discuss_type,
+        create_time, update_time, update_times, view_times,
+        effective
+        from article
+        where 1=1
+        <if test='null != id'>
+            and id = #{id},
+        </if>
+        <if test='null != articleDirId'>
+            and article_dir_id = #{articleDirId},
+        </if>
+        <if test='null != authorId'>
+            and author_id = #{authorId},
+        </if>
+        <if test='null != articleType'>
+            and article_type = #{articleType},
+        </if>
+        <if test='null != title'>
+            and title = #{title},
+        </if>
+        <if test='null != content'>
+            and content = #{content},
+        </if>
+        <if test='null != privilege'>
+            and privilege = #{privilege},
+        </if>
+        <if test='null != keyWords'>
+            and key_words = #{keyWords},
+        </if>
+        <if test='null != discussType'>
+            and discuss_type = #{discussType},
+        </if>
+        <if test='null != createTime'>
+            and create_time = #{createTime},
+        </if>
+        <if test='null != updateTime'>
+            and update_time = #{updateTime},
+        </if>
+        <if test='null != updateTimes'>
+            and update_times = #{updateTimes},
+        </if>
+        <if test='null != viewTimes'>
+            and view_times = #{viewTimes},
+        </if>
+        <if test='null != effective'>
+            and effective = #{effective}
+        </if>
+
+    </select>
+</mapper> 

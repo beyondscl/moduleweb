@@ -5,6 +5,7 @@ dogauth/target/
 dogdb/target/
 dogueditor/target/
 .idea/
+.idea
 *.iml
 
 

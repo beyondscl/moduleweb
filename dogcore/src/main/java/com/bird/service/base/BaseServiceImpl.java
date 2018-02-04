@@ -27,12 +27,20 @@ public class BaseServiceImpl<T> implements BaseService {
         return baseDao.updateObject(o);
     }
 
+    public int deleteByIds(String[] ids) {
+        return baseDao.deleteByIds(ids);
+    }
+
     public int deleteById(String id) {
         return baseDao.deleteById(id);
     }
 
     public int deleteObject(Object o) {
         return baseDao.deleteObject(o);
+    }
+
+    public List<T> findByIds(String[] ids) {
+        return baseDao.findByIds(ids);
     }
 
     public Object findById(String id) {
@@ -44,7 +52,7 @@ public class BaseServiceImpl<T> implements BaseService {
     }
 
     public List queryByPage(Object O) {
-        return baseDao.queryByPage(O);
+        return baseDao.findByPage(O);
     }
 
     /**

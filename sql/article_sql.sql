@@ -6,7 +6,7 @@ CREATE TABLE article_dir (
   author_id   VARCHAR(32) COMMENT '作者id',
   dir_name    VARCHAR(100) COMMENT '目录名称',
   create_time VARCHAR(32) NOT NULL,
-  update_time VARCHAR(32) NOT NULL
+  update_time VARCHAR(32)
   COMMENT '最后修改时间',
   effective   INT(1)      NOT NULL
   COMMENT '是否有效1有效;0无效'
@@ -35,7 +35,7 @@ CREATE TABLE article (
   COMMENT '修改次数',
   view_times     INT     DEFAULT 0
   COMMENT '查阅次数',
-  effective      CHAR(1) DEFAULT 1
+  effective   INT(1)      NOT NULL
   COMMENT '是否有效1有效;0无效'
 )
   COMMENT = '文章表';

@@ -26,9 +26,14 @@ public interface BaseService<T> {
 
     int deleteById(String id);
 
+    int deleteByIds(String[] ids);
+
+
     int deleteObject(Object o);
 
     T findById(String id);
+
+    List<T> findByIds(String[] ids);
 
     T findByObject(Object O);
 

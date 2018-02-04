@@ -22,5 +22,7 @@ select table_name
 from information_schema.tables 
 where table_schema='world';
 
+select * from article_dir;
+
 
 

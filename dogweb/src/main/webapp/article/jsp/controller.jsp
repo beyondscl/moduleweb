@@ -8,7 +8,7 @@
 	response.setHeader("Content-Type" , "text/html");
 	
 	String rootPath = application.getRealPath( "/" );
-	
+	//需要一个高版本的jdk 1.6也有高版本
 	out.write( new ActionEnter( request, rootPath ).exec() );
 	
 %>

@@ -2,6 +2,7 @@ package com.bird.filters;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import util.Token;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -39,27 +40,30 @@ public class RequestFilter implements Filter {
             //无
         } else if (!IpFilter.isIllegal() || !IpFilter.checkIp(ip)) {
             //全员禁止登录，黑名单
-        } else if ((uri.contains(".")
-                || uri.equals("/")
+        } else if (uri.equals("/")
                 || uri.endsWith("/login")
-                || uri.endsWith("/toLogin"))) {
+                || uri.endsWith("/toLogin")) {
             //域名过滤，非本网站域名直接pass
             //所有后缀直接放过，放过登录
             filterChain.doFilter(servletRequest, servletResponse);
         } else if (uri.endsWith("/ssoLogin")) {
             //其他登录方式
-        } else {
-//            String token = (String) request.getAttribute("token");
-//            if (null == token || !Token.authToken(token)) {
-//                //针对表单请求非法不含
-//                log.debug(uri + "+" + ip);
-//                throw new RuntimeException("丢失的页面");
-//            } else {
-//                filterChain.doFilter(servletRequest, servletResponse);
-//            }
-
+        } else if (uri.contains("/assets/")
+                || uri.contains("/article/")
+                || uri.contains(".css")
+                || uri.contains(".png")
+                || uri.contains(".js")) {
+            //静态资源放过
             filterChain.doFilter(servletRequest, servletResponse);
-
+        } else {
+            String token = request.getParameter("token");
+            if (null == token || !Token.authToken(token)) {
+//                针对表单请求非法不含
+                log.debug(uri + "+" + ip);
+                request.getRequestDispatcher("/user/toLogin").forward(servletRequest, servletResponse);
+            } else {
+                filterChain.doFilter(servletRequest, servletResponse);
+            }
         }
     }
 

@@ -71,7 +71,7 @@ public class Start {
         ArrayList arrayList = getTableInfos();
         String fileRoot = System.getProperty("user.dir");
         String packageRoot = "/com/bird/";
-        String[] pNames = {"control", "dao", "domain", "service"};//mapping jsp 没写
+        String[] pNames = {"control", "dao", "domain", "service", "xml"};//mapping jsp 没写
         for (int i = 0; i < arrayList.size(); i++) {
             ArrayList<TableField> tablePojos = (ArrayList<TableField>) arrayList.get(i);
             for (String dirName : pNames) {
@@ -87,6 +87,8 @@ public class Start {
                     CreateUtil.createDomain(packageRoot + dirName, tablePojos);
                 if (dirName.equals("service"))
                     CreateUtil.createService(packageRoot + dirName, tablePojos);
+                if (dirName.equals("xml"))
+                    CreateUtil.createXml(packageRoot + dirName, tablePojos);
             }
         }
     }

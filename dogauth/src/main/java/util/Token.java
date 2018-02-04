@@ -110,4 +110,21 @@ public class Token {
         return false;
     }
 
+    public static String  getUserByToken(String token) {
+        try {
+            String[] s = token.split("\\.");
+            if (null == s || s.length != 3) {
+                throw new RuntimeException("illegality token!");
+            }
+            if (getSignature(s[0], s[1]).equals(s[2])) {//确保数据没有被篡改
+                String p = URLDecoder.decode(s[1], encodeType);
+                p = new String(Base64Utils.decode(p.getBytes()));
+                return p;
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

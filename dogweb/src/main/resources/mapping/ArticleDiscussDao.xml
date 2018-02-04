@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bird.dao.ArticleDiscussDao">
+    <insert id="saveObject" parameterType="com.bird.domain.ArticleDiscuss">
+        INSERT into article_discuss
+        (
+        id, article_id, author_id, create_time, parent_id,
+        effective)
+        values
+        (
+        #{id}, #{articleId}, #{authorId}, #{createTime}, #{parentId},
+        #{effective})
+    </insert>
+    <update id="updateObject" parameterType="com.bird.domain.ArticleDiscuss">
+        update article_discuss set
+        <if test='null != id'>
+            id = #{ id} ,
+        </if>
+        <if test='null != articleId'>
+            article_id = #{ articleId} ,
+        </if>
+        <if test='null != authorId'>
+            author_id = #{ authorId} ,
+        </if>
+        <if test='null != createTime'>
+            create_time = #{ createTime} ,
+
+        </if>
+        <if test='null != parentId'>
+            parent_id = #{ parentId} ,
+        </if>
+        <if test='null != effective'>
+            effective = #{ effective}
+        </if>
+
+        where id = #{id}
+    </update>
+    <delete id="deleteById" parameterType="java.lang.String">
+        delete from article_discuss
+        where id =#{id}
+    </delete>
+    <delete id="deleteByIds">
+        delete from article_discuss
+        where id IN
+        <foreach collection="array" item="id" index="index"
+                 open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="findById" parameterType="java.lang.String"
+            resultType="com.bird.domain.ArticleDiscuss">
+        select
+        id, article_id, author_id, create_time, parent_id,
+        effective
+        from article_discuss
+        where id =#{id}
+    </select>
+    <select id="findByIds" resultType="com.bird.domain.ArticleDiscuss">
+        select
+        id, article_id, author_id, create_time, parent_id,
+        effective
+        from article_discuss
+        where id IN
+        <foreach collection="array" item="id" index="index"
+                 open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+    <select id="findByObject" parameterType="com.bird.domain.ArticleDiscuss"
+            resultType="com.bird.domain.ArticleDiscuss">
+        select
+        id, article_id, author_id, create_time, parent_id,
+        effective
+        from article_discuss
+        where 1=1
+        <if test='null != id'>
+            and id = #{id},
+        </if>
+        <if test='null != articleId'>
+            and article_id = #{articleId},
+        </if>
+        <if test='null != authorId'>
+            and author_id = #{authorId},
+        </if>
+        <if test='null != createTime'>
+            and create_time = #{createTime},
+        </if>
+        <if test='null != parentId'>
+            and parent_id = #{parentId},
+        </if>
+        <if test='null != effective'>
+            and effective = #{effective}
+        </if>
+
+    </select>
+</mapper> 
