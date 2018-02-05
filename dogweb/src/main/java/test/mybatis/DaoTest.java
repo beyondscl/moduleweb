@@ -17,6 +17,7 @@ import java.util.List;
  * doc:
  * 测试xml生成对不对
  * xml生成还有很多要改进的地方，还有基础接口也是
+ * 测试请不要忘记关闭sql session
  */
 public class DaoTest {
 
