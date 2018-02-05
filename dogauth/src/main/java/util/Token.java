@@ -94,7 +94,8 @@ public class Token {
         try {
             String[] s = token.split("\\.");
             if (null == s || s.length != 3) {
-                throw new RuntimeException("illegality token!");
+//                throw new RuntimeException("illegality token!");
+                return false;
             }
             if (getSignature(s[0], s[1]).equals(s[2])) {//确保数据没有被篡改
                 String h = URLDecoder.decode(s[0], encodeType);

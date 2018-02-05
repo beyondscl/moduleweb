@@ -37,7 +37,7 @@ public class ArticleAction {
     }
 
     @RequestMapping(value = "/toAdd")
-    public String toAdd(HttpServletRequest request) {
+    public String toAdd() {
         return "article/add";
     }
 

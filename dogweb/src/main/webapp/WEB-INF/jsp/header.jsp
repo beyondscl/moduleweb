@@ -11,13 +11,11 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
     request.setAttribute("basePath", basePath);
+    request.setAttribute("token", request.getParameter("token"));
 %>
-<html>
-<head>
-    <title>奇鸟安全</title>
     <base href="${basePath}">
     <link rel="stylesheet" href="/assets/css/theme.css">
+<!--公共的js记住顺序和相互依赖关系-->
+<!--自定义js在页尾加载-->
     <script type="text/javascript"
             src="/assets/js/jquery-3.2.1.min.js"></script>
-</head>
-</html>

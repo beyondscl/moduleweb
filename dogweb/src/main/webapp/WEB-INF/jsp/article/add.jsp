@@ -11,6 +11,7 @@
 <head>
     <title>文章</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <jsp:include page="../header.jsp"></jsp:include>
     <script type="text/javascript" charset="utf-8"
             src="${basePath}/article/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8"
@@ -30,6 +31,7 @@
 <form action="/articleAction/save" method="post"
       enctype="application/x-www-form-urlencoded">
     <input type="hidden" name="token" value="${token}"/>
+    <input type="hidden" name="formrand" value="1"/>
     <input name="title" value="这里是标题"/>
     <div>
         <select name="articleType">

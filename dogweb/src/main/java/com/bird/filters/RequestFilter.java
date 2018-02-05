@@ -57,6 +57,7 @@ public class RequestFilter implements Filter {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
             String token = request.getParameter("token");
+            token = token == null ? (String) request.getAttribute("token") : token;
             if (null == token || !Token.authToken(token)) {
 //                针对表单请求非法不含
                 log.debug(uri + "+" + ip);
