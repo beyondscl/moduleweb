@@ -63,17 +63,19 @@ public class CreateUtil {
                     sb.append(" private String ");
                     sb.append(field);//需要做处理
                 } else if (type.contains("int")) {
-                    sb.append(" private int ");//long?
+                    sb.append(" private Integer ");//long?
                     sb.append(field);//需要做处理
-                } else if (type.contains("float")) {
-                    sb.append(" private double ");//long?
+                } else if (type.contains("Float")) {
+                    sb.append(" private Double ");//long?
                     sb.append(field);//需要做处理
                 } else if (type.contains("blob")) {
-                    sb.append(" private byte[] ");//long?
+                    sb.append(" private Byte[] ");//long?
                     sb.append(field);//需要做处理
                 } else if (type.contains("text")) {
                     sb.append(" private String ");//long?
                     sb.append(field);//需要做处理
+                }else{
+                    System.out.println("不识别的字段"+field);
                 }
                 sb.append(";");
                 sb.append("\r \n");
