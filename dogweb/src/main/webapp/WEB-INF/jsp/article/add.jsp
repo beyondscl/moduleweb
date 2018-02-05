@@ -31,7 +31,7 @@
 <form action="/articleAction/save" method="post"
       enctype="application/x-www-form-urlencoded">
     <input type="hidden" name="token" value="${token}"/>
-    <input type="hidden" name="formrand" value="1"/>
+    <input type="hidden" name="id" value="${id}"/>
     <input name="title" value="这里是标题"/>
     <div>
         <select name="articleType">

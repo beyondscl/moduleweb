@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.bird.Util.MySeesion" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2018/1/19 0019
@@ -11,7 +11,8 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
     request.setAttribute("basePath", basePath);
-    request.setAttribute("token", request.getParameter("token"));
+    MySeesion.setToken(request);
+
 %>
     <base href="${basePath}">
     <link rel="stylesheet" href="/assets/css/theme.css">

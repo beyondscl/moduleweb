@@ -25,7 +25,9 @@ public class MySeesion {
     }
 
     public static void setToken(HttpServletRequest request) {
-        request.setAttribute("token", request.getParameter("token"));
+        String token = request.getParameter("token");
+        if (StringUtil.notEmpty(token))
+            request.setAttribute("token", token);
     }
 
     public static Object getUserValue(HttpServletRequest request, String key) {

@@ -1,5 +1,6 @@
 package com.bird.filters;
 
+import com.bird.Util.StringUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import util.Token;
@@ -57,13 +58,11 @@ public class RequestFilter implements Filter {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
             String token = request.getParameter("token");
-            token = token == null ? (String) request.getAttribute("token") : token;
-            if (null == token || !Token.authToken(token)) {
-//                针对表单请求非法不含
-                log.debug(uri + "+" + ip);
-                request.setAttribute("token",token);
+            if (!StringUtil.notEmpty(token) || !Token.authToken(token)) {
+                log.debug("非法请求:" + uri + "+" + ip);
                 request.getRequestDispatcher("/user/toLogin").forward(servletRequest, servletResponse);
             } else {
+                request.setAttribute("token", token);
                 filterChain.doFilter(servletRequest, servletResponse);
             }
         }

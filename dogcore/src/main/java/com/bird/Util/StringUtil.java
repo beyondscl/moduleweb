@@ -32,4 +32,10 @@ public class StringUtil {
         }
         return "";
     }
+
+    public static boolean notEmpty(String v) {
+        if (v == null || v.length() == 0)
+            return false;
+        return true;
+    }
 }

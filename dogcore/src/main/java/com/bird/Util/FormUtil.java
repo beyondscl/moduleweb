@@ -11,18 +11,18 @@ import java.util.List;
  * 防止form重复提交
  */
 public class FormUtil {
-    final private static List<Double> formrandom = new ArrayList<Double>();
+    final private static List<String> formrandom = new ArrayList<String>();
 
-    public static void setFormrandom(Double value) {
+    public static void setFormrandom(String value) {
         formrandom.add(value);
     }
 
-    public static void removeFormrandom(Double value) {
+    public static void removeFormrandom(String value) {
         if (checkFormrandom(value))
             formrandom.remove(value);
     }
 
-    public static boolean checkFormrandom(Double value) {
+    public static boolean checkFormrandom(String value) {
         return formrandom.contains(value);
     }
 }

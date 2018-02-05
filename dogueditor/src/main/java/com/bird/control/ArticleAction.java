@@ -1,5 +1,6 @@
 package com.bird.control;
 
+import com.bird.Util.FormUtil;
 import com.bird.Util.IdGen;
 import com.bird.Util.MySeesion;
 import com.bird.Util.TimeUtil;
@@ -37,19 +38,26 @@ public class ArticleAction {
     }
 
     @RequestMapping(value = "/toAdd")
-    public String toAdd() {
+    public String toAdd(HttpServletRequest request) {
+        String id = IdGen.getId();
+        FormUtil.setFormrandom(id);
+        request.setAttribute("id", id);
         return "article/add";
     }
 
-    //刷新页面再次保存，需要解决bug
     @RequestMapping(value = "/save")
     public void save(Article article, HttpServletRequest request,
                      HttpServletResponse response) {
-        article.setId(IdGen.getId());
-        article.setAuthorId(MySeesion.getUserValue(request, "id").toString());
-        article.setCreateTime(TimeUtil.getDateStr());
-        articleService.saveObject(article);
         try {
+            //虽然能屏蔽重复刷新表单保存，但是回退后在提交就不行了？
+            if (!FormUtil.checkFormrandom(article.getId())) {
+                request.getRequestDispatcher("/articleAction/index").forward(request, response);
+                return;
+            }
+            article.setAuthorId(MySeesion.getUserValue(request, "id").toString());
+            article.setCreateTime(TimeUtil.getDateStr());
+            articleService.saveObject(article);
+
             article.setCurrentPage(0);
             request.setAttribute("data", articleService.queryByPage(article));
             request.getRequestDispatcher("/articleAction/index").forward(request, response);
