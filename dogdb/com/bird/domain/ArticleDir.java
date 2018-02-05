@@ -13,5 +13,5 @@ public class ArticleDir {
  //注释: 最后修改时间 默认值: null 是否可为空 YES 
  private String updateTime; 
  //注释: 是否有效1有效;0无效 默认值: null 是否可为空 NO 
- private int effective; 
+ private Integer effective; 
 } 
