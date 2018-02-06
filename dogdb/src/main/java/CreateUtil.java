@@ -384,6 +384,14 @@ public class CreateUtil {
             sb.append(" limit ${startRow}, ${endRow} \n");
             sb.append("</select> \n");
 
+            sb.append("<select id=\"getCount\" parameterType=\"com.bird.domain." + tableName + "\" resultType=\"java.lang.Integer\" >\n");
+            sb.append("select count(1) from \n");
+            sb.append(realTableName.toLowerCase() + " \n");
+            sb.append("where 1=1 \n");
+            sb.append(queryloumnNames(tablePojos));
+            sb.append(" \n");
+            sb.append("</select> \n");
+
 
             sb.append("</mapper> \n");
             outputStream.write(sb.toString().getBytes());
