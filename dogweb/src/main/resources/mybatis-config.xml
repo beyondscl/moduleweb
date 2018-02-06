@@ -12,10 +12,11 @@
         <setting name="aggressiveLazyLoading" value="false"/>
 
         <!-- 开启二级缓存，默认是false -->
-        <setting name="cacheEnabled" value="false"/>
+        <!--多表查询中，注意使用参考缓存：适用于少量表，不常更新的数据;其余可以在业务层自己实现可控的缓存-->
+        <setting name="cacheEnabled" value="true"/>
 
-        <!--一级缓存-->
-        <!--<setting name="localCacheScope" value="SESSION"/>-->
+        <!--一级缓存,默认使用，在dao xml配置flush cache取消-->
+        <setting name="localCacheScope" value="SESSION"/>
 
         <!-- 打印查询语句 -->
         <setting name="logImpl" value="LOG4J"/>
