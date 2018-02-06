@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 
-public class Article {
+public class Article extends Page{
 
     //注释:  默认值: null 是否可为空 NO
 

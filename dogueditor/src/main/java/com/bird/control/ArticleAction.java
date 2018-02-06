@@ -5,6 +5,7 @@ import com.bird.Util.IdGen;
 import com.bird.Util.MySeesion;
 import com.bird.Util.TimeUtil;
 import com.bird.domain.Article;
+import com.bird.domain.Page;
 import com.bird.service.ArticleService;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
@@ -28,12 +29,15 @@ public class ArticleAction {
     }
 
     @RequestMapping(value = "/index")
-    public String index(HttpServletRequest request) {
-        Article article = new Article();
-        article.setArticleType(1);
-        article.setPrivilege(1);
+    public String index(Article article,HttpServletRequest request) {
         article.setCurrentPage(article.getCurrentPage());
+        //这是返回的数据
         request.setAttribute("data", articleService.queryByPage(article));
+        //这是查询的数据，同时返回页码信息
+        Page page = new Page();
+        page.setRowCount(articleService.getCount(article));
+        page.setCurrentPage(article.getCurrentPage());
+        request.setAttribute("page", page);
         return "article/index";
     }
 
