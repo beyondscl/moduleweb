@@ -24,6 +24,7 @@ java基本类型是有默认值的，比如int a，那么对应在xml文件中�
 3.如果可以尽量配上 
 注意：二进制和时间 jdbcType :data time datetime -> DATE TIME TIMESTAMP
 4.返回主键：有2个属性可以设置，*genataor，selectKey，什么；还能使用select自动生成主键，但是建议统一生成主键
+5.可以根据数据库类型做判断写不同的sql
 ````
 ### 多表关联如何设置返回
 ````
