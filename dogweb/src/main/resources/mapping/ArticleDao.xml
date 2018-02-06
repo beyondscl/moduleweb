@@ -226,4 +226,53 @@ from article
 
         limit ${startRow}, ${endRow}
     </select>
+    <select id="getCount" parameterType="com.bird.domain.Article"
+            resultType="java.lang.Integer">
+        select count(1) from
+        article
+        where 1=1
+        <if test='null != id'>
+            and id = #{id}
+        </if>
+        <if test='null != articleDirId'>
+            and article_dir_id = #{articleDirId}
+        </if>
+        <if test='null != authorId'>
+            and author_id = #{authorId}
+        </if>
+        <if test='null != articleType'>
+            and article_type = #{articleType}
+        </if>
+        <if test='null != title'>
+            and title = #{title}
+        </if>
+        <if test='null != content'>
+            and content = #{content}
+        </if>
+        <if test='null != privilege'>
+            and privilege = #{privilege}
+        </if>
+        <if test='null != keyWords'>
+            and key_words = #{keyWords}
+        </if>
+        <if test='null != discussType'>
+            and discuss_type = #{discussType}
+        </if>
+        <if test='null != createTime'>
+            and create_time = #{createTime}
+        </if>
+        <if test='null != updateTime'>
+            and update_time = #{updateTime}
+        </if>
+        <if test='null != updateTimes'>
+            and update_times = #{updateTimes}
+        </if>
+        <if test='null != viewTimes'>
+            and view_times = #{viewTimes}
+        </if>
+        <if test='null != effective'>
+            and effective = #{effective}
+        </if>
+
+    </select>
 </mapper> 

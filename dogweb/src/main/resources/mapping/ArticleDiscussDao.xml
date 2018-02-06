@@ -131,4 +131,29 @@
 
         limit ${startRow}, ${endRow}
     </select>
+    <select id="getCount" parameterType="com.bird.domain.ArticleDiscuss"
+            resultType="java.lang.Integer">
+        select count(1) from
+        article_discuss
+        where 1=1
+        <if test='null != id'>
+            and id = #{id}
+        </if>
+        <if test='null != articleId'>
+            and article_id = #{articleId}
+        </if>
+        <if test='null != authorId'>
+            and author_id = #{authorId}
+        </if>
+        <if test='null != createTime'>
+            and create_time = #{createTime}
+        </if>
+        <if test='null != parentId'>
+            and parent_id = #{parentId}
+        </if>
+        <if test='null != effective'>
+            and effective = #{effective}
+        </if>
+
+    </select>
 </mapper> 

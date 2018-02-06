@@ -49,7 +49,7 @@
         <div>
             <label>分类</label>
             <select name="articleDirId">
-                <option value="89864b4a86f9472e82678c7b3e59a361">java 核心
+                <option value="1e27869f3a98">java 核心
                 </option>
             </select>
         </div>

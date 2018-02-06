@@ -29,5 +29,10 @@
         </tr>
     </c:forEach>
 </table>
+<div>
+    <a href="?">上一页</a>
+    当前第${page.currentPage}页，共${page.pageCount}页，共${page.rowCount}条数据
+    <a href="?">下一页</a>
+</div>
 </body>
 </html>
