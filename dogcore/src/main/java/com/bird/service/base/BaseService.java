@@ -39,6 +39,8 @@ public interface BaseService<T> {
 
     List<T> queryByPage(Object O);
 
+    int getCount(Object o);
+
     //用户必须在其实现类中重写的接口
     void setBaseDao(BaseDao baseDao);
 }

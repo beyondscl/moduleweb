@@ -40,6 +40,6 @@ public interface BaseDao<T> {
     List<T> findByPage(Object O);
 
     //查询某表的总数
-    long getCount(Object o);
+    int getCount(Object o);
     //--------------------------
 }

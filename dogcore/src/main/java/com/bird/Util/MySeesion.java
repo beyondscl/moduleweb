@@ -1,6 +1,7 @@
 package com.bird.Util;
 
 import org.json.JSONObject;
+import org.junit.Assert;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -31,6 +32,7 @@ public class MySeesion {
     }
 
     public static Object getUserValue(HttpServletRequest request, String key) {
+        Assert.assertNotNull(map);
         return getUserByToken(request.getParameter("token")).get(key);
     }
 }
