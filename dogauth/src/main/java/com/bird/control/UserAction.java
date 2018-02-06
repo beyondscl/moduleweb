@@ -35,6 +35,7 @@ public class UserAction {
     @Resource
     private UserService userService;
 
+    //可以存放在token <-> user session中，做双重判断！！减少查询中心服务器
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(@ModelAttribute User user,
                         HttpServletRequest request) {
