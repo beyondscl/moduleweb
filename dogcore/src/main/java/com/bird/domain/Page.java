@@ -20,7 +20,7 @@ public class Page extends Log {
     //总行数
     private int rowCount;
     //每页条数
-    private int rowPage = 15;
+    private int rowPage = 10;
     //用于查询-------------------------------------------------------------------
     //开始行,start with 0
     private int startRow;
@@ -42,6 +42,6 @@ public class Page extends Log {
 
         int m = rowCount / rowPage; //取整
         int s = rowCount % rowPage;//取余
-        pageCount = m + s > 0 ? 1 : 0;
+        pageCount = m + s > 0 ? m + 1 : m;
     }
 }
