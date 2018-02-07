@@ -30,9 +30,13 @@
     </c:forEach>
 </table>
 <div>
-    <a href="?">上一页</a>
-    当前第${page.currentPage}页，共${page.pageCount}页，共${page.rowCount}条数据
-    <a href="?">下一页</a>
+    <c:if test="${page.currentPage >1}">
+        <a href="?">上一页</a>
+    </c:if>
+    当前第${page.currentPage}页,共${page.pageCount}页,每页${page.rowPage}条数据,共${page.rowCount}条数据
+    <c:if test="${page.currentPage < page.pageCount}">
+        <a href="?">下一页</a>
+    </c:if>
 </div>
 </body>
 </html>
