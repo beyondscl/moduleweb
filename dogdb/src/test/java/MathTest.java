@@ -8,7 +8,7 @@ import org.junit.Test;
  */
 public class MathTest {
     @Test
-    public void divTest(){
-        System.out.println(1/2);
+    public void divTest() {
+        System.out.println(1 / 2);
     }
 }

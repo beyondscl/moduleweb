@@ -13,9 +13,9 @@
 
     </insert>
     <update id="updateObject" parameterType="com.bird.domain.Article">
-    UPDATE SET article
-    set xx ==#{xx}
-    WHERE  id = #{id}
+        UPDATE SET article
+        set xx ==#{xx}
+        WHERE id = #{id}
     </update>
     <delete id="deleteById"></delete>
     <delete id="deleteObject"></delete>

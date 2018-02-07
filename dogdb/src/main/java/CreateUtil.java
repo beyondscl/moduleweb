@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * time:2018/1/31
  * email:pettygadfly@gmail.com
  * doc:
+ * 生成基本的操作：但是对时间还需要特殊处理
  */
 public class CreateUtil {
 
@@ -37,8 +38,9 @@ public class CreateUtil {
             StringBuffer sb = new StringBuffer();
             sb.append("package " + path.replaceAll("/", ".").replaceFirst(".", "") + "; \r \n");
             sb.append("import lombok.Data;\r \n");
+            sb.append("import java.io.Serializable;\r \n");
             sb.append("@Data\r \n");
-            sb.append("public class " + tableName + " { \r \n");
+            sb.append("public class " + tableName + " extends Page implements Serializable { \r \n");
 
             //请使用@lombok.Data注解，我这里就不设置set/get
             for (TableField tablePojo : tablePojos) {
@@ -74,8 +76,8 @@ public class CreateUtil {
                 } else if (type.contains("text")) {
                     sb.append(" private String ");//long?
                     sb.append(field);//需要做处理
-                }else{
-                    System.out.println("不识别的字段"+field);
+                } else {
+                    System.out.println("不识别的字段" + field);
                 }
                 sb.append(";");
                 sb.append("\r \n");
@@ -304,7 +306,8 @@ public class CreateUtil {
                     "<!DOCTYPE mapper PUBLIC \"-//mybatis.org//DTD Mapper 3.4//EN\" \n" +
                     "        \"http://mybatis.org/dtd/mybatis-3-mapper.dtd\">");
             sb.append("<mapper namespace=\"com.bird.dao." + tableName + "Dao\"> \n");
-
+            sb.append("<!--使用ehcache二级缓存,bean实现序列化接口,cache还能更多属性设置-->");
+            sb.append("<cache/>");
             //map转对象因为 字段名称是带下划线的
             sb.append("<resultMap id=\"mapToObject\" type=\"com.bird.domain." + tableName + "\">");
             sb.append(getClounProper(tablePojos));
