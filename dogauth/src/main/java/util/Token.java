@@ -111,7 +111,7 @@ public class Token {
         return false;
     }
 
-    public static String  getUserByToken(String token) {
+    public static String getUserByToken(String token) {
         try {
             String[] s = token.split("\\.");
             if (null == s || s.length != 3) {

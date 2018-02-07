@@ -2,6 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bird.dao.UserDao">
+    <!--使用ehcache二级缓存,bean实现序列化接口,cache还能更多属性设置-->
+    <cache/>
     <resultMap id="mapToObject" type="com.bird.domain.User">
         <result column="id" property="id"/>
         <result column="name" property="name"/>

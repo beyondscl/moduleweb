@@ -1,5 +1,10 @@
-package com.bird.dao;  
-import org.springframework.stereotype.Repository; 
-@Repository 
-public interface ArticleDirDao extends BaseDao { 
-} 
+package com.bird.dao;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+
+public interface ArticleDirDao extends BaseDao {
+
+}
+ 

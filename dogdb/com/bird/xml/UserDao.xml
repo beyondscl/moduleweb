@@ -1,91 +1,129 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" 
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"><mapper namespace="com.bird.dao.UserDao"> 
-<resultMap id="mapToObject" type="com.bird.domain.User"> <result column="id" property="id"/>
-<result column="name" property="name"/>
-<result column="password" property="password"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bird.dao.UserDao">
+    <!--使用ehcache二级缓存,bean实现序列化接口,cache还能更多属性设置-->
+    <cache/>
+    <resultMap id="mapToObject" type="com.bird.domain.User">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="password" property="password"/>
 
-</resultMap><insert id="saveObject" parameterType="com.bird.domain.User"> 
-INSERT into user 
-( 
- id, name, password) 
-values 
-( 
- #{id}, #{name}, #{password}) 
-</insert> 
-<update id="updateObject" parameterType="com.bird.domain.User"> 
-update user  set 
- <if test='null != id'>
-id = #{ id} , 
-</if>
-<if test='null != name'>
-name = #{ name} , 
-</if>
-<if test='null != password'>
-password = #{ password} 
-</if>
- 
-where id = #{id} 
-</update> 
-<delete id="deleteById" parameterType="java.lang.String"> 
-delete from user 
- where id =#{id}
-</delete> 
-<delete id="deleteByIds"> 
-delete from user 
- where id IN
- <foreach collection="array" item="id" index="index"
-          open="(" close=")" separator=",">
-     #{id}
- </foreach>
-</delete> 
-<select id="findById"  parameterType="java.lang.String" resultMap="mapToObject" >
-select 
- id, name, password 
-from user 
- where id =#{id}
-</select> 
-<select id="findByIds" resultMap="mapToObject" >
-select 
- id, name, password 
-from user 
- where id IN
- <foreach collection="array" item="id" index="index"
-          open="(" close=")" separator=",">
-     #{id}
- </foreach>
-</select> 
-<select id="findByObject" parameterType="com.bird.domain.User" resultMap="mapToObject" >
-select 
- id, name, password 
-from user 
-where 1=1 
- <if test='null != id'>
-and id = #{id}
-</if>
-<if test='null != name'>
-and name = #{name}
-</if>
-<if test='null != password'>
-and password = #{password}
-</if>
- 
-</select> 
-<select id="findByPage" parameterType="com.bird.domain.User" resultMap="mapToObject" >
-select 
- id, name, password 
-from user 
-where 1=1 
- <if test='null != id'>
-and id = #{id}
-</if>
-<if test='null != name'>
-and name = #{name}
-</if>
-<if test='null != password'>
-and password = #{password}
-</if>
- 
- limit ${startRow}, ${endRow} 
-</select> 
+    </resultMap>
+    <insert id="saveObject" parameterType="com.bird.domain.User">
+        INSERT into user
+        (
+        id, name, age, password)
+        values
+        (
+        #{id}, #{name}, #{age}, #{password})
+    </insert>
+    <update id="updateObject" parameterType="com.bird.domain.User">
+        update user set
+        <if test='null != id'>
+            id = #{ id} ,
+        </if>
+        <if test='null != name'>
+            name = #{ name} ,
+        </if>
+        <if test='null != age'>
+            age = #{ age} ,
+        </if>
+        <if test='null != password'>
+            password = #{ password}
+
+        </if>
+
+        where id = #{id}
+    </update>
+    <delete id="deleteById" parameterType="java.lang.String">
+        delete from user
+        where id =#{id}
+    </delete>
+    <delete id="deleteByIds">
+        delete from user
+        where id IN
+        <foreach collection="array" item="id" index="index"
+                 open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="findById" parameterType="java.lang.String"
+            resultMap="mapToObject">
+        select
+        id, name, age, password
+        from user
+        where id =#{id}
+    </select>
+    <select id="findByIds" resultMap="mapToObject">
+        select
+        id, name, age, password
+        from user
+        where id IN
+        <foreach collection="array" item="id" index="index"
+                 open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+    <select id="findByObject" parameterType="com.bird.domain.User"
+            resultMap="mapToObject">
+        select
+        id, name, age, password
+        from user
+        where 1=1
+        <if test='null != id'>
+            and id = #{id}
+        </if>
+        <if test='null != name'>
+            and name = #{name}
+        </if>
+        <if test='null != age'>
+            and age = #{age}
+        </if>
+        <if test='null != password'>
+            and password = #{password}
+        </if>
+
+    </select>
+    <select id="findByPage" parameterType="com.bird.domain.User"
+            resultMap="mapToObject">
+        select
+        id, name, age, password
+        from user
+        where 1=1
+        <if test='null != id'>
+            and id = #{id}
+        </if>
+        <if test='null != name'>
+            and name = #{name}
+        </if>
+        <if test='null != age'>
+            and age = #{age}
+        </if>
+        <if test='null != password'>
+            and password = #{password}
+        </if>
+
+        limit ${startRow}, ${endRow}
+    </select>
+    <select id="getCount" parameterType="com.bird.domain.User"
+            resultType="java.lang.Integer">
+        select count(1) from
+        user
+        where 1=1
+        <if test='null != id'>
+            and id = #{id}
+        </if>
+        <if test='null != name'>
+            and name = #{name}
+        </if>
+        <if test='null != age'>
+            and age = #{age}
+        </if>
+        <if test='null != password'>
+            and password = #{password}
+        </if>
+
+    </select>
 </mapper> 

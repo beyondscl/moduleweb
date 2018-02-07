@@ -2,9 +2,11 @@ package com.bird.domain;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
 
-public class ArticleDiscuss {
+public class ArticleDiscuss extends Page implements Serializable {
 
     //注释:  默认值: null 是否可为空 NO
 
@@ -26,7 +28,7 @@ public class ArticleDiscuss {
 
     private String parentId;
 
-    //注释: 是否有效1有效;0无效 默认值: null 是否可为空 NO
+    //注释: 是否有效1有效;0无效 默认值: 1 是否可为空 YES
 
     private Integer effective;
 

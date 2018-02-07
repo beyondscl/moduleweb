@@ -1,18 +1,28 @@
 package com.bird.domain;
 
-
 import lombok.Data;
 
-/**
- * author: 牛虻.
- * time:2017/11/19 0019
- * email:pettygadfly@gmail.com
- * doc:
- */
+import java.io.Serializable;
+
 @Data
-public class User extends Page {
+
+public class User extends Page implements Serializable {
+
+    //注释:  默认值: null 是否可为空 NO
+
     private String id;
+
+    //注释:  默认值: null 是否可为空 YES
+
     private String name;
+
+    //注释:  默认值: null 是否可为空 YES
+
+    private Integer age;
+
+    //注释:  默认值: null 是否可为空 YES
+
     private String password;
-    private int age;
+
 }
+ 

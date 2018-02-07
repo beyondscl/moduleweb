@@ -9,7 +9,7 @@
         <!-- lazyLoadingEnabled:延迟加载启动，默认是false -->
         <setting name="lazyLoadingEnabled" value="true"/>
         <!-- aggressiveLazyLoading：积极的懒加载，false的话按需加载，默认是true -->
-        <setting name="aggressiveLazyLoading" value="false"/>
+        <setting name="aggressiveLazyLoading" value="true"/>
 
         <!-- 开启二级缓存，默认是false -->
         <!--多表查询中，注意使用参考缓存：适用于少量表，不常更新的数据;其余可以在业务层自己实现可控的缓存-->

@@ -8,7 +8,7 @@
 <html>
 <header>
     <style>
-        *{
+        * {
             text-align: center;
         }
     </style>

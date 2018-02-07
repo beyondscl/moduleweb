@@ -14,9 +14,9 @@
     MySeesion.setToken(request);
 
 %>
-    <base href="${basePath}">
-    <link rel="stylesheet" href="/assets/css/theme.css">
+<base href="${basePath}">
+<link rel="stylesheet" href="/assets/css/theme.css">
 <!--公共的js记住顺序和相互依赖关系-->
 <!--自定义js在页尾加载-->
-    <script type="text/javascript"
-            src="/assets/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript"
+        src="/assets/js/jquery-3.2.1.min.js"></script>

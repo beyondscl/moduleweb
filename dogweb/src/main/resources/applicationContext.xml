@@ -4,8 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
-    <!--包含模块下的所有配置-->
-    <import resource="applicationContext_*.xml"></import>
 
     <import resource="spring-mybatis.xml"/>
 

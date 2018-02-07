@@ -1,5 +1,6 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="../config/ehcache.xsd">
+    <!--这个地址没用？也能缓存，在dao的配置文件中也可以配置-->
     <diskStore path="F:\develop\ehcache"/>
     <defaultCache
             maxElementsInMemory="1000"

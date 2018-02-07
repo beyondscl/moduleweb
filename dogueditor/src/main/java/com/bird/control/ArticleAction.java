@@ -29,7 +29,7 @@ public class ArticleAction {
     }
 
     @RequestMapping(value = "/index")
-    public String index(Article article,HttpServletRequest request) {
+    public String index(Article article, HttpServletRequest request) {
         article.setCurrentPage(article.getCurrentPage());
         //这是返回的数据
         request.setAttribute("data", articleService.queryByPage(article));
