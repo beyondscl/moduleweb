@@ -28,6 +28,13 @@ public class ArticleAction {
         return "";
     }
 
+    /**
+     * 可以接收查询参数,分页查询
+     *
+     * @param article
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/index")
     public String index(Article article, HttpServletRequest request) {
         article.setCurrentPage(article.getCurrentPage());
@@ -50,26 +57,34 @@ public class ArticleAction {
     }
 
     @RequestMapping(value = "/save")
-    public void save(Article article, HttpServletRequest request,
-                     HttpServletResponse response) {
+    public String save(Article article, HttpServletRequest request,
+                       HttpServletResponse response) {
+        String returnUrl = "article/index";
+
         try {
             //虽然能屏蔽重复刷新表单保存，但是回退后在提交就不行了？
             if (!FormUtil.checkFormrandom(article.getId())) {
                 request.getRequestDispatcher("/articleAction/index").forward(request, response);
-                return;
+                return returnUrl;
             }
             article.setAuthorId(MySeesion.getUserValue(request, "id").toString());
             article.setCreateTime(TimeUtil.getDateStr());
             articleService.saveObject(article);
-
+            //不带任何查询参数的首页
+            article = new Article();
             article.setCurrentPage(0);
             request.setAttribute("data", articleService.queryByPage(article));
-            request.getRequestDispatcher("/articleAction/index").forward(request, response);
+            Page page = new Page();
+            page.setRowCount(articleService.getCount(article));
+            page.setCurrentPage(article.getCurrentPage());
+            request.setAttribute("page", page);
+            return returnUrl;
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return returnUrl;
     }
 
     @RequestMapping(value = "/delete")
