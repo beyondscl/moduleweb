@@ -15,6 +15,17 @@ public class Page extends Log {
 
     //当前页码
     private int currentPage;
+    //总页数
+    private int pageCount;
+    //总行数
+    private int rowCount;
+    //每页条数
+    private int rowPage = 15;
+    //用于查询-------------------------------------------------------------------
+    //开始行,start with 0
+    private int startRow;
+    //结束行
+    private int endRow;
 
     //请手动调用一次
     public void setCurrentPage(int currentPage) {
@@ -25,11 +36,6 @@ public class Page extends Log {
         this.endRow = currentPage * rowPage - 1;
     }
 
-    //总页数
-    private int pageCount;
-    //总行数
-    private int rowCount;
-
     //请手动调用一次
     public void setRowCount(int rowCount) {
         this.rowCount = rowCount;
@@ -38,12 +44,4 @@ public class Page extends Log {
         int s = rowCount % rowPage;//取余
         pageCount = m + s > 0 ? 1 : 0;
     }
-    //每页条数
-    private int rowPage = 15;
-
-    //用于查询-------------------------------------------------------------------
-    //开始行,start with 0
-    private int startRow;
-    //结束行
-    private int endRow;
 }
