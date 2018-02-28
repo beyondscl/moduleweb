@@ -13,12 +13,6 @@
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop-4.3.xsd ">
 
-    <!-- 引入配置文件 -->
-    <bean id="propertyConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:jdbc.properties"/>
-    </bean>
-
     <!--1.参数错误请仔细检查2.空闲时间等检查以免出现下面错误
     Can not read response from server. Expected to read 4 bytes,
     read 0 bytes before connection was unexpectedly lost.-->
