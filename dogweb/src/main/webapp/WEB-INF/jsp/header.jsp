@@ -1,4 +1,4 @@
-<%@ page import="com.bird.Util.MySeesion" %><%--
+<%@ page import="com.bird.util.MySeesion" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2018/1/19 0019

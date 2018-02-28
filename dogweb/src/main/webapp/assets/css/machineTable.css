@@ -1,0 +1,14 @@
+.table {
+    font-size: 12px;
+    background-color: #f0f0f0;
+}
+
+.table tr td {
+    background-color: #f0f0f0;
+    padding: 0px;
+    height: 25px;
+}
+
+.table th {
+    background-color: #fcfcfc;
+}
