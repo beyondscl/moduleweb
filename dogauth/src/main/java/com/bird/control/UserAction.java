@@ -1,6 +1,6 @@
 package com.bird.control;
 
-import com.bird.Util.MySeesion;
+import com.bird.util.MySeesion;
 import com.bird.domain.User;
 import com.bird.service.UserService;
 import org.json.JSONObject;
@@ -46,6 +46,7 @@ public class UserAction {
         String token = Token.getToken(user);
         MySeesion.setUserByToken(token, new JSONObject(user));
         request.setAttribute("token", token);
+        request.getSession().setAttribute("user", user);
         return "main";
 
     }
@@ -89,7 +90,8 @@ public class UserAction {
         System.out.println("-------------------------");
         Object o = userService.getAllUser();
         System.out.println("-------------------------");
-
+        User user = (User) request.getSession().getAttribute("user");
+        logger.info(user.getId());
         return "main";
     }
 
