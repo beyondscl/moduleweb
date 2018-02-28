@@ -1,6 +1,6 @@
 package com.bird.filters;
 
-import com.bird.Util.StringUtil;
+import com.bird.util.StringUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import util.Token;
