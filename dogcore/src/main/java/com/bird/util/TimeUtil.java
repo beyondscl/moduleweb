@@ -1,4 +1,4 @@
-package com.bird.Util;
+package com.bird.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
