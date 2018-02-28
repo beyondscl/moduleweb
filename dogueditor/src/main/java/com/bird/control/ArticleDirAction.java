@@ -1,7 +1,7 @@
 package com.bird.control;
 
-import com.bird.Util.IdGen;
-import com.bird.Util.TimeUtil;
+import com.bird.util.IdGen;
+import com.bird.util.TimeUtil;
 import com.bird.domain.ArticleDir;
 import com.bird.service.ArticleDirService;
 import org.springframework.stereotype.Controller;

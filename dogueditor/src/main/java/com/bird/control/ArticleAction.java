@@ -1,9 +1,9 @@
 package com.bird.control;
 
-import com.bird.Util.FormUtil;
-import com.bird.Util.IdGen;
-import com.bird.Util.MySeesion;
-import com.bird.Util.TimeUtil;
+import com.bird.util.FormUtil;
+import com.bird.util.IdGen;
+import com.bird.util.MySeesion;
+import com.bird.util.TimeUtil;
 import com.bird.domain.Article;
 import com.bird.domain.Page;
 import com.bird.service.ArticleService;
