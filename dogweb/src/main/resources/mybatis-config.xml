@@ -19,7 +19,7 @@
         <setting name="localCacheScope" value="SESSION"/>
 
         <!-- 打印查询语句 -->
-        <setting name="logImpl" value="LOG4J"/>
+        <setting name="logImpl" value="LOG4J2"/>
     </settings>
     <!--     打印SQL只需要加一个setting就可以了。
      mybatis的日志打印方式比较多，SLF4J | LOG4J | LOG4J2 | JDK_LOGGING |
