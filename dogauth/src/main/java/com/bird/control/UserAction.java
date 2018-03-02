@@ -3,8 +3,11 @@ package com.bird.control;
 import com.bird.util.MySeesion;
 import com.bird.domain.User;
 import com.bird.service.UserService;
+import com.bird.util.TimeUtil;
 import org.json.JSONObject;
 import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +21,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.UUID;
-import java.util.logging.Logger;
 
 /**
  * author: 牛虻.
@@ -29,7 +31,7 @@ import java.util.logging.Logger;
 @Controller
 @RequestMapping("/user/*")
 public class UserAction {
-    private Logger logger = Logger.getLogger(UserAction.class.getName());
+    private Logger logger = LoggerFactory.getLogger(UserAction.class.getName());
 
 
     @Resource
@@ -47,6 +49,7 @@ public class UserAction {
         MySeesion.setUserByToken(token, new JSONObject(user));
         request.setAttribute("token", token);
         request.getSession().setAttribute("user", user);
+        logger.info("slf4j info "+ TimeUtil.getDateStr());
         return "main";
 
     }
