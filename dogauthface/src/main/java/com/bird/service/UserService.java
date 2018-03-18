@@ -13,6 +13,10 @@ import java.util.List;
  * doc:
  * 传统本地实现接口
  */
+
+/**
+ * 如果这个接口作为dubbo服务，就应该隐藏不该开放的方法！需要在做一个门面封装一次。！切记
+ */
 @Service
 public interface UserService extends BaseService {
 

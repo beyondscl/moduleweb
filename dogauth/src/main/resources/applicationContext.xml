@@ -21,33 +21,8 @@
             </list>
         </property>
     </bean>
-    <import resource="classpath:dubbo-clients.xml"/>
+
     <import resource="spring-mybatis.xml"/>
-
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-
-    <!--spring session + redis-->
-    <bean id="redisHttpSessionConfiguration"
-          class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration">
-        <property name="maxInactiveIntervalInSeconds" value="360"/>
-    </bean>
-
-    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
-        <property name="maxTotal" value="100"/>
-        <property name="maxIdle" value="10"/>
-    </bean>
-
-    <bean id="jedisConnectionFactory"
-          class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-          destroy-method="destroy">
-        <property name="hostName" value="${redisHost}"/>
-        <property name="port" value="${redisPort}"/>
-        <property name="password" value="${redisPassword}"/>
-        <property name="timeout" value="${redisTimeout}"/>
-        <property name="usePool" value="${redisUsePool}"/>
-        <property name="poolConfig" ref="jedisPoolConfig"/>
-    </bean>
+    <import resource="classpath:dubbo-provider.xml"/>
 
 </beans>

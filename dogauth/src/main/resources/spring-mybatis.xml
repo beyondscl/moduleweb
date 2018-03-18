@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd ">
+
+    <!--1.参数错误请仔细检查2.空闲时间等检查以免出现下面错误
+    Can not read response from server. Expected to read 4 bytes,
+    read 0 bytes before connection was unexpectedly lost.-->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="${driverClassName}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+        <!-- 初始化连接大小 -->
+        <property name="initialSize" value="${initialSize}"/>
+        <!-- 连接池最大数量 -->
+        <property name="maxActive" value="${maxActive}"/>
+        <!-- 连接池最大空闲 -->
+        <property name="maxIdle" value="${maxIdle}"/>
+        <!-- 连接池最小空闲 -->
+        <property name="minIdle" value="${minIdle}"/>
+        <!-- 获取连接最大等待时间 -->
+        <property name="maxWait" value="${maxWait}"/>
+        <property name="validationQuery" value="${validationQuery}"/>
+        <property name="testOnBorrow" value="${testOnBorrow}"/>
+        <property name="validationQueryTimeout"
+                  value="${validationQueryTimeout}"/>
+    </bean>
+
+    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+    <!--还可以配置基类dao???-->
+    <bean id="sqlSessionFactory"
+          class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 自动扫描mapping.xml文件 ,由于分模块，这里需要*-->
+        <property name="mapperLocations"
+                  value="classpath*:mapping/**/*.xml"/>
+        <property name="configLocation"
+                  value="classpath:mybatis-config.xml"></property>
+    </bean>
+
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.bird.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+    <!--自动选择jdk代理或者cglib-->
+    <aop:aspectj-autoproxy/>
+
+    <!-- 自动扫描 -->
+    <!-- mvc扫描包含了所有包,已经去除了service目录-->
+    <!-- service包下面，可以不配置include和exclude -->
+    <context:component-scan base-package="com.bird.service"/>
+
+    <!-- 事务管理 -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--  声明配置事务,配置事物属性 ，需要事物管理器-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true"
+                       propagation="SUPPORTS"/>
+            <tx:method name="find*" read-only="true"
+                       propagation="SUPPORTS"/>
+            <tx:method name="load*" read-only="true"
+                       propagation="SUPPORTS"/>
+            <tx:method name="select*" read-only="true"
+                       propagation="SUPPORTS"/>
+            <!--save update delete-->
+            <tx:method name="add*" propagation="REQUIRED"
+                       rollback-for="java.lang.Exception"/>
+            <tx:method name="insert*" propagation="REQUIRED"
+                       rollback-for="java.lang.Exception"/>
+            <!--no-rollback-for="java.lang.RuntimeException"/>-->
+            <tx:method name="save*" propagation="REQUIRED"
+                       rollback-for="java.lang.Exception"/>
+            <tx:method name="update*" propagation="REQUIRED"
+                       rollback-for="java.lang.Exception"/>
+            <tx:method name="delete*" propagation="REQUIRED"
+                       rollback-for="java.lang.Exception"/>
+            <tx:method name="*" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--可能需要，aspectjwwaver.jar,cglib,spring-aspects-4.3.6.RELEASE.jar这几个包-->
+    <!--配置事物切点，并把事物属性和切点关联起来  com.bird.service下的[任意包]，任意以Service结尾的[任意类]，[任意方法][任意参数]-->
+    <aop:config>
+        <aop:pointcut
+                expression="execution(public * com.bird.service..*Service.*(..))"
+                id="txPointcut"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+    </aop:config>
+
+
+    <!-- 配置事务异常封装 -->
+    <bean id="persistenceExceptionTranslationPostProcessor"
+          class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+    <!--&lt;!&ndash;注解形式aop&ndash;&gt;-->
+    <!--&lt;!&ndash; 采用注解方式：有源码的情况下，将注解加在方法上 &ndash;&gt;-->
+    <!--&lt;!&ndash; 开启事务注解标记@Transactional，当调用带@Transactional标记的方法时，将txManager的事务管理功能切入进去 &ndash;&gt;-->
+    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
+    <!--&lt;!&ndash; 在需要事务管理的方法上加上@Transactional注解即可 &ndash;&gt;-->
+
+
+</beans>

@@ -13,22 +13,34 @@
     <url>http://maven.apache.org</url>
 
     <dependencies>
-        <!--核心工具等模块-->
+        <!--核心模块-->
+        <dependency>
+            <groupId>com.dog</groupId>
+            <artifactId>dog-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--所有的配置文件-->
+        <dependency>
+            <groupId>com.dog</groupId>
+            <artifactId>dog-config</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--action模块-->
+        <dependency>
+            <groupId>com.dog</groupId>
+            <artifactId>dog-controller</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!--博客模块-->
         <dependency>
             <groupId>com.dog</groupId>
             <artifactId>dog-ueditor</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!--认证模块 这里只有接口没有实现类，需要去调用服务-->
         <dependency>
             <groupId>com.dog</groupId>
-            <artifactId>dog-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <!--认证模块-->
-        <dependency>
-            <groupId>com.dog</groupId>
-            <artifactId>dog-auth</artifactId>
+            <artifactId>dog-auth-face</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

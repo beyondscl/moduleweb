@@ -13,8 +13,10 @@
         <module>dogcore</module>
         <module>dogweb</module>
         <module>dogauth</module>
+        <module>dogauthface</module>
         <module>dogdb</module>
         <module>dogueditor</module>
-    </modules>
+        <module>dogcontroller</module>
 
+    </modules>
 </project>

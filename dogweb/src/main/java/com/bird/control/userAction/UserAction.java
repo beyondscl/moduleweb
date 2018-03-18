@@ -1,11 +1,10 @@
-package com.bird.control;
+package com.bird.control.userAction;
 
 import com.bird.util.MySeesion;
 import com.bird.domain.User;
 import com.bird.service.UserService;
 import com.bird.util.TimeUtil;
 import org.json.JSONObject;
-import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -87,9 +86,6 @@ public class UserAction {
         User result = userService.getUser(iUesr);
         User result2 = userService.getUser(iUesr);
         User result3 = userService.getUser(iUesr);
-        Assert.assertNotNull(result);
-        Assert.assertNotNull(result2);
-        Assert.assertNotNull(result3);
         System.out.println("-------------------------");
         Object o = userService.getAllUser();
         System.out.println("-------------------------");

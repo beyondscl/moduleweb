@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <dubbo:application name="dog-dubbo-consumer"/>
+    <!-- 使用multicast广播注册中心暴露服务地址 -->
+    <!--<dubbo:registry address="multicast://224.5.6.7:1234"/>-->
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry
+            address="zookeeper://192.168.8.183:2181"/>
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <!-- 这里就是对于的返回接口 -->
+    <!--请配置ID 属性，不然action中无法自动注入哦-->
+    <dubbo:reference id="userService" interface="com.bird.service.UserService" check="false"/>
+</beans>
