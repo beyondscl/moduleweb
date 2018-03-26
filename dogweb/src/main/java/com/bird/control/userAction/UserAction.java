@@ -1,8 +1,8 @@
 package com.bird.control.userAction;
 
-import com.bird.util.MySeesion;
 import com.bird.domain.User;
 import com.bird.service.UserService;
+import com.bird.util.MySeesion;
 import com.bird.util.TimeUtil;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -48,7 +48,7 @@ public class UserAction {
         MySeesion.setUserByToken(token, new JSONObject(user));
         request.setAttribute("token", token);
         request.getSession().setAttribute("user", user);
-        logger.info("slf4j info "+ TimeUtil.getDateStr());
+        logger.info("slf4j info " + TimeUtil.getDateStr());
         return "main";
 
     }

@@ -1,12 +1,12 @@
 package com.bird.control;
 
+import com.bird.domain.Article;
+import com.bird.domain.Page;
+import com.bird.service.ArticleService;
 import com.bird.util.FormUtil;
 import com.bird.util.IdGen;
 import com.bird.util.MySeesion;
 import com.bird.util.TimeUtil;
-import com.bird.domain.Article;
-import com.bird.domain.Page;
-import com.bird.service.ArticleService;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -17,7 +17,7 @@ public class StartProvider {
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
         applicationContext.start();
-        System.out.println("dog-login-provider started1");
+        System.out.println("dog-login-provider started");
         System.out.println("press any key to exit:");
     }
 }

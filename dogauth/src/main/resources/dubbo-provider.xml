@@ -15,8 +15,9 @@
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880"/>
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="com.bird.service.UserService" ref="userServiceImpl"/>
+    <dubbo:service interface="com.bird.service.UserService"
+                   ref="userServiceImpl"/>
     <!--&lt;!&ndash; 和本地bean一样实现服务 &ndash;&gt;-->
     <!--<bean id="userService"-->
-          <!--class="com.bird.service.UserServiceImpl"/>-->
+    <!--class="com.bird.service.UserServiceImpl"/>-->
 </beans>

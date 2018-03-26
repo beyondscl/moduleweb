@@ -1,9 +1,9 @@
 package com.bird.control;
 
-import com.bird.util.IdGen;
-import com.bird.util.TimeUtil;
 import com.bird.domain.ArticleDir;
 import com.bird.service.ArticleDirService;
+import com.bird.util.IdGen;
+import com.bird.util.TimeUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;

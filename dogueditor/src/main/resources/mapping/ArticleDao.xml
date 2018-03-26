@@ -22,19 +22,19 @@
 
     </resultMap>
     <insert id="saveObject" parameterType="com.bird.domain.Article">
-INSERT into article 
-( 
- id, article_dir_id, author_id, article_type, title,  
-content, privilege, key_words, discuss_type,  
-create_time, update_time, update_times, view_times,  
-effective) 
-values 
-( 
- #{id}, #{articleDirId}, #{authorId}, #{articleType}, #{title},  
-#{content}, #{privilege}, #{keyWords}, #{discussType},  
-#{createTime}, #{updateTime}, #{updateTimes}, #{viewTimes},  
-#{effective}) 
-</insert>
+        INSERT into article
+        (
+        id, article_dir_id, author_id, article_type, title,
+        content, privilege, key_words, discuss_type,
+        create_time, update_time, update_times, view_times,
+        effective)
+        values
+        (
+        #{id}, #{articleDirId}, #{authorId}, #{articleType}, #{title},
+        #{content}, #{privilege}, #{keyWords}, #{discussType},
+        #{createTime}, #{updateTime}, #{updateTimes}, #{viewTimes},
+        #{effective})
+    </insert>
     <update id="updateObject" parameterType="com.bird.domain.Article">
         update article set
         <if test='null != id'>
@@ -87,9 +87,9 @@ values
         where id = #{id}
     </update>
     <delete id="deleteById" parameterType="java.lang.String">
-delete from article 
- where id =#{id}
-</delete>
+        delete from article
+        where id =#{id}
+    </delete>
     <delete id="deleteByIds">
         delete from article
         where id IN
@@ -100,14 +100,14 @@ delete from article
     </delete>
     <select id="findById" parameterType="java.lang.String"
             resultMap="mapToObject">
-select 
- id, article_dir_id, author_id, article_type, title,  
-content, privilege, key_words, discuss_type,  
-create_time, update_time, update_times, view_times,  
-effective 
-from article 
- where id =#{id}
-</select>
+        select
+        id, article_dir_id, author_id, article_type, title,
+        content, privilege, key_words, discuss_type,
+        create_time, update_time, update_times, view_times,
+        effective
+        from article
+        where id =#{id}
+    </select>
     <select id="findByIds" resultMap="mapToObject">
         select
         id, article_dir_id, author_id, article_type, title,

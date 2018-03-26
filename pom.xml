@@ -7,16 +7,64 @@
     <groupId>com.dog</groupId>
     <artifactId>dog-root</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0-RELEASES</version>
 
+    <!--错误的包一定要解决，不然会打包失败-->
     <modules>
         <module>dogcore</module>
         <module>dogweb</module>
         <module>dogauth</module>
         <module>dogauthface</module>
-        <module>dogdb</module>
+        <!--<module>dogdb</module>-->
         <module>dogueditor</module>
         <module>dogcontroller</module>
 
     </modules>
+
+    <!--指定下载仓库-->
+    <!--nexus
+      1.新建包目录
+      2.新建hosted 仓库目录
+      3.将自己的目录，加入nexus 公开目录
+      公开目录会加载本地->没有就加载远程....最后回写到本地仓库
+    -->
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>nexus-repo</name>
+            <url>http://10.0.20.144:8081/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
+    <!--打包编译的插件配置等-->
+    <!--这里可以打包公用的包-->
+    <!--如果需要打包单独可运行的包，在模块里面去打包-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.7</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!--配置发布到哪里,这里发布到我自己的本地-->
+    <!--这里的id 需要和setting配置文件中密码的id一样-->
+    <distributionManagement>
+        <repository>
+            <id>dog-repo-releases</id>
+            <name>dog-repo-releases</name>
+            <url>http://10.0.20.144:8081/repository/dog-repo/</url>
+        </repository>
+    </distributionManagement>
 </project>

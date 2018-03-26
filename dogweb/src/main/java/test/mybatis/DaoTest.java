@@ -1,9 +1,9 @@
 package test.mybatis;
 
-import com.bird.util.IdGen;
-import com.bird.util.TimeUtil;
 import com.bird.dao.ArticleDirDao;
 import com.bird.domain.ArticleDir;
+import com.bird.util.IdGen;
+import com.bird.util.TimeUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;

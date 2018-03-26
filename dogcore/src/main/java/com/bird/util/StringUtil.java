@@ -22,11 +22,12 @@ public class StringUtil {
         str = str.replaceFirst("\\w", firstChar);
         return str;
     }
-    public static String getContentSubject(byte[] bytes){
+
+    public static String getContentSubject(byte[] bytes) {
         try {
             String s = new String(bytes, "utf-8");
-            if (s.length()>100)
-                return s.substring(0,99);
+            if (s.length() > 100)
+                return s.substring(0, 99);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

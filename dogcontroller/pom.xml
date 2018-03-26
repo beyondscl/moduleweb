@@ -1,18 +1,18 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>com.dog</groupId>
         <artifactId>dog-root</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0-RELEASES</version>
     </parent>
 
     <groupId>com.dog</groupId>
     <artifactId>dog-controller</artifactId>
     <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0-RELEASES</version>
     <name>dog-controller Maven Webapp</name>
     <url>http://maven.apache.org</url>
 

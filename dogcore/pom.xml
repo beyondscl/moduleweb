@@ -2,13 +2,15 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <parent>
         <artifactId>dog-root</artifactId>
         <groupId>com.dog</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0-RELEASES</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>dog-core</artifactId>
+    <name>dog-core</name>
     <packaging>jar</packaging>
     <properties>
         <!-- 编码集 -->
@@ -122,13 +124,11 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
-            <scope>provide</scope>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jsp-api</artifactId>
             <version>2.0</version>
-            <scope>provided</scope>
         </dependency>
 
         <!-- redis jedis -->
@@ -307,9 +307,22 @@
             <artifactId>dubbo</artifactId>
             <version>2.5.3</version>
             <exclusions>
+                <!--去掉会引起冲突的类-->
                 <exclusion>
-                    <artifactId>spring</artifactId>
                     <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.jboss.netty</groupId>
+                    <artifactId>netty</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -344,6 +357,22 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.7</version>
+            </plugin>
         </plugins>
     </build>
+
+
+    <distributionManagement>
+        <repository>
+            <!--这里的id 需要和setting配置文件中密码的id一样-->
+            <id>dog-repo-releases</id>
+            <name>dog-repo-releases</name>
+            <url>http://10.0.20.144:8081/repository/dog-repo/</url>
+        </repository>
+    </distributionManagement>
+
 </project>

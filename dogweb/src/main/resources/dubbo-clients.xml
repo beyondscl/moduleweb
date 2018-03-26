@@ -14,5 +14,6 @@
 
     <!-- 这里就是对于的返回接口 -->
     <!--请配置ID 属性，不然action中无法自动注入哦-->
-    <dubbo:reference id="userService" interface="com.bird.service.UserService" check="false"/>
+    <dubbo:reference id="userService" interface="com.bird.service.UserService"
+                     check="false"/>
 </beans>

@@ -1,0 +1,7 @@
+#surefire
+#Mon Mar 26 15:52:10 CST 2018
+user.dir=F\:\\githbu\\moduleweb\\dogconfig
+maven.repo.local=E\:\\local_maven_repository
+idea.version=2016.2.5
+localRepository=E\:\\local_maven_repository
+basedir=F\:\\githbu\\moduleweb\\dogconfig

@@ -4,7 +4,7 @@
     <parent>
         <artifactId>dog-root</artifactId>
         <groupId>com.dog</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0-RELEASES</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>dog-web</artifactId>
@@ -17,13 +17,13 @@
         <dependency>
             <groupId>com.dog</groupId>
             <artifactId>dog-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0-RELEASES</version>
         </dependency>
         <!--所有的配置文件-->
         <dependency>
             <groupId>com.dog</groupId>
             <artifactId>dog-config</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0-RELEASES</version>
         </dependency>
         <!--action模块-->
         <dependency>
@@ -35,13 +35,13 @@
         <dependency>
             <groupId>com.dog</groupId>
             <artifactId>dog-ueditor</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0-RELEASES</version>
         </dependency>
         <!--认证模块 这里只有接口没有实现类，需要去调用服务-->
         <dependency>
             <groupId>com.dog</groupId>
             <artifactId>dog-auth-face</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0-RELEASES</version>
         </dependency>
 
     </dependencies>
