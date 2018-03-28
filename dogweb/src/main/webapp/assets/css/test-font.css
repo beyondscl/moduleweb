@@ -1,0 +1,51 @@
+/*
+网页字体
+@font-face规则
+-----------------
+
+字体效果和字体排版
+E{text-shadow: x y blur-radius(模糊) color }
+
+*/
+.one{
+    /*
+    可叠加
+    E{text-shadow: x y blur-radius(模糊) color }
+    */
+    text-shadow: 0.3px 0.3px 1px red;
+    text-shadow: 1px 1px 1px green;
+}
+.twe{
+    /*可叠加
+    E{width blur-radius color}
+    */
+    /*text-outline: 2px 40px red;*/
+    /* 描边  用下面替代*/
+    color: #555;
+    -webkit-text-fill-color: white;
+    /*-webkit-text-stroke-color: #555;*/
+    /*-webkit-text-stroke-width: 3px;*/
+    -webkit-text-stroke: 3px #555;
+
+    width: 125px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+/*
+resize 拉伸
+text-align 对齐
+word-wrap 文本换行
+text-wrap
+text-rendering文本渲染
+*/
+
+.three{
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*font-family: 宋体;*/
+    font-style: inherit;
+    font-weight: 100;
+    padding: 1px 2px;
+    margin: 0px;
+}

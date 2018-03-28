@@ -1,0 +1,96 @@
+.div1 {
+    padding: 0;
+    margin: 0;
+    width: 100px;
+    height: 100px;
+    background: black;
+}
+
+/*旋转*/
+.div1 .p1 {
+    color: white;
+    -o-transform: rotate(-25deg);
+    -moz-transform: rotate(-25deg);
+    -webkit-transform: rotate(-25deg);
+    -ms-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+    transform-origin: 0px 20px;
+}
+
+/*平移*/
+.div1 .p2 {
+    color: white;
+    -webkit-transform: translate(22px, -23px);
+    transform: translate(22px, -23px);
+}
+
+/*
+旋转 rotate
+平移 translate
+倾斜 skew | skewX ,skeW
+缩放 scale | scaleX,scaleY
+可以联合使用
+---
+矩阵变换，替代上面的函数，略过
+---
+webkit反射
+*/
+
+/*渐变*/
+.div2 {
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    /*[属性|all],持续时间,变换方式，延迟 */
+    transition: 2s ease .1s;
+    -webkit-transition: 2s ease .1s;
+    border-radius: 50%;
+}
+
+.div2:hover {
+    width: 300px;
+    height: 100px;
+    background: red;
+}
+/*动画*/
+.div3{
+    width: 100px;
+    height: 80px;
+    background: red;
+    border: 1px solid black;
+    border-radius: 30%;
+    /*animation-name: 动画名称(默认值为none)*/
+    /*animation-duration: 持续时间(默认值为0)*/
+    /*animation-timing-function: 时间函数(默认值为ease)*/
+    /*animation-delay: 延迟时间(默认值为0)*/
+    /*animation-iteration-count: 循环次数(默认值为1)*/
+    /*animation-direction: 动画方向(默认值为normal)alternate */
+    /*animation-play-state: 播放状态(默认值为running)*/
+    /*animation-fill-mode: 填充模式(默认值为none)*/
+    /*name |时间 |计时函数|延迟|迭代次数*/
+    animation: go 2s ease .1s infinite;
+}
+@keyframes go {
+    from {
+        border-width: 33px;
+    }
+    50% {
+        border-width: 1px;
+    }
+    to {
+        border-width: 33px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

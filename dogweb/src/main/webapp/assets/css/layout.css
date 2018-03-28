@@ -1,0 +1,14 @@
+.div-noborder{
+    border: 0px;
+}
+.div-cont-left{
+    height: 650px;
+}
+.div-cont-middle{
+    height: 650px;
+    background-color: blue;
+}
+.div-cont-right{
+    height: 650px;
+    background-color: orange;
+}

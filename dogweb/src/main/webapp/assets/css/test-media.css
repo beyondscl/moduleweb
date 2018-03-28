@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+宽度不超过600
+device-width
+max-device-width
+min-device-width
+----------------
+orientation 方向，可适用于屏幕旋转
+*/
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: black;
+    }
+}
+
+/*宽度大于600*/
+@media only screen and (min-width: 600px) {
+    body {
+        background-color: green;
+    }
+}
+
+.div1 {
+    position: relative;
+}
+
+.div1 p {
+    background-color: red;
+}
+

@@ -1,0 +1,145 @@
+* {
+    padding: 10px;
+    margin: 10px;
+}
+
+hr {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px 4px;
+    border: 2px solid black;
+}
+/*@@@边框*/
+.border {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border-radius: 40px 4px;
+    /*border-[top|bottom]-[left|right]-radius: xpx ypx*/
+}
+
+.border2 {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px 4px;
+    border: 10px solid black;
+    border-image: url("../images/tank.png") 32 39 36 35 repeat;
+    -webkit-border-image: url("../images/tank.png") 3 3 3 3 round stretch;
+    -o-border-image: url("../images/tank.png");
+    -moz-border-image: url("../images/tank.png");
+}
+
+/*[inset][color] v-t v-b h-l h-r mohu*/
+/*[inset][color] x y [mohu]*/
+.border3 {
+    border-left: rgba(38, 255, 237, 0.14) solid 22px;
+    box-shadow: 3px -3px 10px, -3px 3px 2px;
+}
+
+/*
+可以叠加设置，向外面里面都可以
+*/
+.border4 {
+    box-shadow: 3px -3px 10px, -3px 3px 2px;
+    -webkit-box-shadow: inset red 3px -3px 2px,
+    inset red -3px 3px 2px,
+    3px -3px 2px,
+    -3px 3px 2px;
+}
+
+/*
+多背景图片
+    重复，大小
+*/
+.bg {
+    width: 100px;
+    height: 200px;
+    background: url("../images/bg3.jpg") no-repeat 0% 100%,
+    #000 url("../images/timg.jpg") no-repeat 100% 0%;
+    background-size: auto, 5%, 5%, auto;
+    /*[contain|cover|auto, 5%, 5%, auto]*/
+    -webkit-background-size: auto;
+}
+
+/*
+@@@
+测试没通过~
+精灵图片
+图片遮罩
+*/
+.bg2 {
+    width: 100px;
+    height: 200px;
+    background: url("../images/bg3.jpg") no-repeat 0% 100%;
+    background-size: auto;
+    -webkit-background-size: auto;
+    -webkit-mask: url("../images/tank.png") norepeat 50% 50%;
+    -webkit-mask-size: 100%;
+
+}
+/*@@@颜色与不透明度
+opacity 被全集成且不能被覆盖
+alpha 透明度
+*/
+.test1{
+    height: auto;
+}
+.test1 .p1{
+    padding: 0;
+    margin: 0;
+    opacity: .6;
+}
+.test1 .p2{
+    padding: 0;
+    margin: 0;
+    opacity: .3;
+}
+/*
+线性
+放射
+多重，重复渐变，不测试了
+*/
+.test2{
+    background-image: -webkit-gradient(linear,center top ,center bottom,from(white),to(black));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

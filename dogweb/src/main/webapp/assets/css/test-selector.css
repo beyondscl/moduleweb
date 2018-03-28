@@ -1,0 +1,130 @@
+/*
+属性,
+类,
+类型,
+伪类选择器,
+*/
+
+*{
+    padding: 0;
+    margin: 0;
+}
+/*
+> ~ |
+^= 开始
+$= 结束
+*= 任意
+~ | + 普通兄弟连接符
+
+*/
+a[rel='email']{
+    color: red;
+    /*background-image: url('../images/tank.png');*/
+}
+/*多个匹配*/
+a[rel='email'][href^='https']{
+    color: red;
+    /*background-image: url('../images/tank.png');*/
+}
+/*兄弟选择器*/
+/*紧邻的一个*/
+h2 + p {
+    font-size: 20px;
+    color: red;
+}
+/*后面的任意*/
+h2 ~ p {
+    font-size: 30px;
+    color: green;
+}
+/*::before*/
+/*::after*/
+
+/*
+伪类和伪元素
+:hover
+:visited
+:active
+E:first-child 等等
+* = child|of-type 任意|同类型的
+nth-*(n) 0开始，可以做计算
+nth-*(even|odd) 偶数|奇数
+链接中有 E:target
+:empty
+:root
+:not(F)
+
+*/
+.data_table{
+
+}
+.data_table tr:nth-child(even){
+    background-color: black;
+}
+.data_table tr:nth-child(odd){
+    background-color: red;
+}
+
+.oneDiv{
+
+}
+/* > 直接子元素*/
+.oneDiv > :not(p){
+    font-size: 32px;
+}
+
+/*
+ui伪类
+:checked
+:disabled
+:enabled
+
+伪元素
+:: first-line
+::first-letter
+::after
+::before
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,128 @@
+/*文章css*/
+*{
+    font-size: 12px;
+}
+.container{
+    background-color: gainsboro;
+    width: 80%;
+    height: 80%;
+}
+.a_left{
+    width: 75%;
+    float: left;
+
+}
+.p_header{
+
+
+}
+.p_header .p_img{
+    width: 120px;
+    height: 120px;
+    float: left;
+}
+.p_header .p_title{
+    margin-left: 120px;
+}
+.p_header .p_info{
+    margin-left: 120px;
+}
+.p_header .p_info ul{
+    list-style:none; /* 去掉ul前面的符号 */
+    margin: 0px; /* 与外界元素的距离为0 */
+    padding: 0px; /* 与内部元素的距离为0 */
+    width: auto; /* 宽度根据元素内容调整 */
+}
+.p_header .p_info ul li{
+    float: left;
+}
+.p_info_li{
+    padding-right: 8px;
+    padding-left: 5px;
+    border-right: 1px;
+    border-right-style: solid;
+}
+.p_info_li p{
+    margin: 0 auto;
+    padding: 0;
+}
+.p_article{
+    width: 100%;
+    float: left;
+    position: relative;
+}
+.font22{
+    font-size: 18px;
+    font-style: inherit;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.p_article ul{
+    list-style: none;
+    float: left;
+}
+
+.a_right{
+    width: 25%;
+    float: right;
+}
+.a_dir{
+    padding: 5px 0;
+}
+.a_dir ul{
+    list-style:none;
+    margin: 5px;
+    padding: 5px;
+    width: auto;
+}
+.a_dir ul li{
+    padding: 8px;
+}
+.a_dir ul li i{
+    padding-left: 3px;
+}
+.div_hr{
+    width: 80%;
+    border-bottom: 1px dashed;
+    padding: 5px 0;
+}
+
+.article_main{
+    clear: both;
+    width: 100%;
+    height: 120px;
+    float: left;
+    margin: 5px;
+}
+.article_main div{
+}
+.article_img{
+    width: 110px;
+    height: 110px;
+    float: left;
+}
+.article_title{
+    margin-left: 140px;
+    height: 20px;
+}
+.article_content{
+    height: 80px;
+    margin-left: 140px;
+}
+.article_info{
+    height: 20px;
+    margin-left: 140px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

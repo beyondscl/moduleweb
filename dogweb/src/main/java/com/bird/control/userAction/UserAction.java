@@ -49,7 +49,7 @@ public class UserAction {
         request.setAttribute("token", token);
         request.getSession().setAttribute("user", user);
         logger.info("slf4j info " + TimeUtil.getDateStr());
-        return "main";
+        return "article/index";
 
     }
 

@@ -153,6 +153,7 @@
     </servlet-mapping>
 
     <welcome-file-list><!--指定欢迎页面-->
+        <welcome-file>/index.html</welcome-file>
         <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
 

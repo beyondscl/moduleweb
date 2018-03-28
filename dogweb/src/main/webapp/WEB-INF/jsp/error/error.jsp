@@ -13,6 +13,8 @@
     <title>亲，你访问的页面去火星了?!</title>
 </head>
 <body>
+<h>错误调试页面：</h>
+<br>
 <h>
     错误码：<%=request.getAttribute("javax.servlet.error.status_code")%> <br>
     信息： <%=request.getAttribute("javax.servlet.error.message")%> <br>

@@ -28,8 +28,8 @@
     </style>
 </head>
 <body>
-<form action="/articleAction/save" method="post"
-      enctype="application/x-www-form-urlencoded">
+<form id="articleform" action="/articleAction/save" method="post"
+      enctype="application/x-www-form-urlencoded" onsubmit="return false">
     <input type="hidden" name="token" value="${token}"/>
     <input type="hidden" name="id" value="${id}"/>
     <input name="title" value="这里是标题"/>
@@ -68,7 +68,7 @@
     </div>
     <div>
         <input type="reset" value="清空"/>
-        <input type="submit" value="发布"/>
+        <input onclick="submit()" type="submit" value="发布"/>
     </div>
 </form>
 <div id="btns">
@@ -114,7 +114,10 @@
 </div>
 
 <script type="text/javascript">
-
+function submit() {
+    document.articleform.action = "/articleAction/save";
+    document.articleform.submit();
+}
     //实例化编辑器
     //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
     var ue = UE.getEditor('editor');
