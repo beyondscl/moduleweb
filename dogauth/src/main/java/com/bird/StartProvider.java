@@ -19,5 +19,6 @@ public class StartProvider {
         applicationContext.start();
         System.out.println("dog-login-provider started");
         System.out.println("press any key to exit:");
+        System.in.read();
     }
 }

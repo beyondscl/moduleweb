@@ -12,7 +12,7 @@
 
     </resultMap>
     <insert id="saveObject" parameterType="com.bird.domain.User">
-        INSERT into user
+        INSERT into article_user
         (
         id, name, age, password)
         values
@@ -20,7 +20,7 @@
         #{id}, #{name}, #{age}, #{password})
     </insert>
     <update id="updateObject" parameterType="com.bird.domain.User">
-        update user set
+        update article_user set
         <if test='null != id'>
             id = #{ id} ,
         </if>
@@ -38,11 +38,11 @@
         where id = #{id}
     </update>
     <delete id="deleteById" parameterType="java.lang.String">
-        delete from user
+        delete from article_user
         where id =#{id}
     </delete>
     <delete id="deleteByIds">
-        delete from user
+        delete from article_user
         where id IN
         <foreach collection="array" item="id" index="index"
                  open="(" close=")" separator=",">
@@ -53,13 +53,13 @@
             resultMap="mapToObject">
         select
         id, name, age, password
-        from user
+        from article_user
         where id =#{id}
     </select>
     <select id="findByIds" resultMap="mapToObject">
         select
         id, name, age, password
-        from user
+        from article_user
         where id IN
         <foreach collection="array" item="id" index="index"
                  open="(" close=")" separator=",">
@@ -70,7 +70,7 @@
             resultMap="mapToObject">
         select
         id, name, age, password
-        from user
+        from article_user
         where 1=1
         <if test='null != id'>
             and id = #{id}
@@ -90,7 +90,7 @@
             resultMap="mapToObject">
         select
         id, name, age, password
-        from user
+        from article_user
         where 1=1
         <if test='null != id'>
             and id = #{id}
@@ -110,7 +110,7 @@
     <select id="getCount" parameterType="com.bird.domain.User"
             resultType="java.lang.Integer">
         select count(1) from
-        user
+        article_user
         where 1=1
         <if test='null != id'>
             and id = #{id}
