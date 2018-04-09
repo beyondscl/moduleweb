@@ -56,4 +56,14 @@ CREATE TABLE article_discuss (
 )
   COMMENT = '文章评论表';
 
+--用户表
+  CREATE TABLE `article_user` (
+  `id` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `password` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
 COMMIT;
