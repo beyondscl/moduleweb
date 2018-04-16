@@ -46,7 +46,7 @@ public class UserServiceImpl<T> extends BaseServiceImpl implements UserService {
     }
 
     public void testTx(User user) {
-
+        System.out.println("testTx");
     }
 
     public long getCount(Class className) {

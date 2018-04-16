@@ -1,5 +1,6 @@
 package com.bird;
 
+import com.bird.service.UserService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
@@ -17,6 +18,8 @@ public class StartProvider {
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
         applicationContext.start();
+        UserService userService = (UserService) applicationContext.getBean("userServiceImpl");
+        userService.testTx(null);
         System.out.println("dog-login-provider started");
         System.out.println("press any key to exit:");
         System.in.read();
