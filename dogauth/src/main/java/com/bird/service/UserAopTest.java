@@ -1,9 +1,8 @@
 package com.bird.service;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
@@ -20,8 +19,22 @@ public class UserAopTest {
     @Pointcut("execution(* com.bird.service..*ServiceImpl.testTx(..))")
     public void AopTest(){
     }
+
+    @After("AopTest()")
+    public void afterMethod(){
+        System.out.println("afterMethod===>");
+
+    }
+    @Around("AopTest()")
+    public void aroundMethod(ProceedingJoinPoint pjp) throws Throwable {
+        System.out.println("aroundMethod===>be");
+        pjp.proceed();//不然目标方法不会执行,before也不会执行
+        System.out.println("aroundMethod===>af");
+
+    }
     @Before("AopTest()")
     public void beforeMethod(){
-        System.out.println("");
+        System.out.println("beforeMethod===>");
+
     }
 }
