@@ -1,6 +1,7 @@
 package com.bird.test;
 
 import java.sql.*;
+import java.util.UUID;
 
 /**
  * author: 牛虻.
@@ -32,7 +33,7 @@ public class jdbcTestMycat1 {
 
             conn.setAutoCommit(false);
             Statement statement1 = conn.prepareStatement("");
-            for (int i=0;i<2000;i++){
+            for (int i=0;i<20;i++){
                 statement1.addBatch(getInsertSql(i));
                 if (i%100==0){
                     statement1.executeBatch();
@@ -42,13 +43,14 @@ public class jdbcTestMycat1 {
             }
             statement1.executeBatch();
             conn.commit();
+            statement1.close();
 
             statement.execute("SELECT count(1) FROM t_user");
             rs = statement.getResultSet();
             while (rs.next()){
                 System.out.println(rs.getLong(1));
             }
-
+            System.out.println("数据分片测试完成");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
