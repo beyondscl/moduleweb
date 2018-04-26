@@ -26,11 +26,6 @@
             <version>1.0-RELEASES</version>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>RELEASE</version>
-        </dependency>
-        <dependency>
             <groupId>com.dog</groupId>
             <artifactId>dog-auth-face</artifactId>
             <version>1.0-RELEASES</version>

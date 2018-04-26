@@ -18,6 +18,7 @@
         <!--<module>dogdb</module>-->
         <module>dogueditor</module>
         <module>dogcontroller</module>
+        <module>dogmq</module>
 
     </modules>
 
