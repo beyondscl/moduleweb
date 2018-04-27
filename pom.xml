@@ -19,7 +19,7 @@
         <module>dogueditor</module>
         <module>dogcontroller</module>
         <module>dogmq</module>
-
+        <module>dogconfig</module>
     </modules>
 
     <!--指定下载仓库-->

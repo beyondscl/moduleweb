@@ -12,9 +12,8 @@
     <artifactId>dog-auth-face</artifactId>
     <packaging>jar</packaging>
     <version>1.0-RELEASES</version>
-    <name>dog-auth-face Maven Webapp</name>
+    <name>dog-auth-face</name>
 
-    <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>

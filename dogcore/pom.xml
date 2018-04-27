@@ -12,6 +12,7 @@
     <artifactId>dog-core</artifactId>
     <name>dog-core</name>
     <packaging>jar</packaging>
+
     <dependencies>
         <dependency>
             <groupId>com.dog</groupId>

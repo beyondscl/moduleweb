@@ -1,14 +1,14 @@
 #surefire
-#Mon Mar 26 15:52:10 CST 2018
-testClassesDirectory=F\:\\githbu\\moduleweb\\dogconfig\\target\\test-classes
+#Fri Apr 27 09:51:28 CST 2018
+testClassesDirectory=F\:\\gitspace\\moduleweb\\dogcontroller\\target\\test-classes
 classPathUrl.2=E\:\\local_maven_repository\\junit\\junit\\3.8.1\\junit-3.8.1.jar
 useManifestOnlyJar=true
-classPathUrl.1=F\:\\githbu\\moduleweb\\dogconfig\\target\\classes
-reportsDirectory=F\:\\githbu\\moduleweb\\dogconfig\\target\\surefire-reports
-classPathUrl.0=F\:\\githbu\\moduleweb\\dogconfig\\target\\test-classes
+classPathUrl.1=F\:\\gitspace\\moduleweb\\dogcontroller\\target\\classes
+reportsDirectory=F\:\\gitspace\\moduleweb\\dogcontroller\\target\\surefire-reports
+classPathUrl.0=F\:\\gitspace\\moduleweb\\dogcontroller\\target\\test-classes
 dirscanner.0=directoryScannerOptions
 providerConfiguration=org.apache.maven.surefire.junit.JUnit3Provider
-testSuiteDefinitionTestSourceDirectory=F\:\\githbu\\moduleweb\\dogconfig\\src\\test\\java
+testSuiteDefinitionTestSourceDirectory=F\:\\gitspace\\moduleweb\\dogcontroller\\src\\test\\java
 surefireClassPathUrl.1=E\:\\local_maven_repository\\org\\apache\\maven\\surefire\\surefire-api\\2.7\\surefire-api-2.7.jar
 surefireClassPathUrl.0=E\:\\local_maven_repository\\org\\apache\\maven\\surefire\\surefire-junit3\\2.7\\surefire-junit3-2.7.jar
 report.2=org.apache.maven.surefire.report.XMLReporter
@@ -17,7 +17,7 @@ report.1=org.apache.maven.surefire.report.BriefFileReporter
 report.0=org.apache.maven.surefire.report.ForkingConsoleReporter
 excludes0=**/*$*
 isTrimStackTrace=true
-dirscanner.0.params=F\:\\githbu\\moduleweb\\dogconfig\\target\\test-classes|[**/Test*.java, **/*Test.java, **/*TestCase.java]|[**/*$*]
+dirscanner.0.params=F\:\\gitspace\\moduleweb\\dogcontroller\\target\\test-classes|[**/Test*.java, **/*Test.java, **/*TestCase.java]|[**/*$*]
 enableAssertions=true
 includes2=**/*TestCase.java
 failIfNoTests=false

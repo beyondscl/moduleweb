@@ -13,8 +13,7 @@
     <artifactId>dog-controller</artifactId>
     <packaging>jar</packaging>
     <version>1.0-RELEASES</version>
-    <name>dog-controller Maven Webapp</name>
-    <url>http://maven.apache.org</url>
+    <name>dog-controller</name>
 
     <dependencies>
         <dependency>

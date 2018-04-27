@@ -19,7 +19,7 @@
         <!-- 编码集 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- spring版本 -->
-        <springframework.version>4.3.7.RELEASE</springframework.version>
+        <springframework.version>4.3.14.RELEASE</springframework.version>
     </properties>
     <dependencies>
         <!-- 测试 -->
@@ -27,7 +27,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
-            <!--<scope>provided</scope>-->
+            <scope>provided</scope>
         </dependency>
 
         <!-- spring模块 -->
@@ -35,7 +35,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${springframework.version}</version>
-            <!--<scope>provided</scope>-->
+            <scope>provided</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
         <dependency>
@@ -122,16 +122,16 @@
 
 
         <!--servlet,jsp-->
-        <!--<dependency>-->
-        <!--<groupId>javax.servlet</groupId>-->
-        <!--<artifactId>javax.servlet-api</artifactId>-->
-        <!--<version>3.1.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>javax.servlet</groupId>-->
-        <!--<artifactId>jsp-api</artifactId>-->
-        <!--<version>2.0</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.0</version>
+        </dependency>
 
         <!-- redis jedis -->
         <dependency>

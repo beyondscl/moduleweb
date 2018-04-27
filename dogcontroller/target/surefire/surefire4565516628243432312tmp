@@ -1,0 +1,7 @@
+#surefire
+#Fri Apr 27 09:51:28 CST 2018
+user.dir=F\:\\gitspace\\moduleweb\\dogcontroller
+maven.repo.local=E\:\\local_maven_repository
+idea.version=2016.2.5
+localRepository=E\:\\local_maven_repository
+basedir=F\:\\gitspace\\moduleweb\\dogcontroller

@@ -1,7 +1,7 @@
 #surefire
-#Mon Mar 26 15:52:02 CST 2018
-user.dir=F\:\\githbu\\moduleweb\\dogconfig
+#Fri Apr 27 09:51:29 CST 2018
+user.dir=F\:\\gitspace\\moduleweb\\dogmq
 maven.repo.local=E\:\\local_maven_repository
 idea.version=2016.2.5
 localRepository=E\:\\local_maven_repository
-basedir=F\:\\githbu\\moduleweb\\dogconfig
+basedir=F\:\\gitspace\\moduleweb\\dogmq

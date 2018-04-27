@@ -9,8 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>dog-web</artifactId>
     <packaging>war</packaging>
-    <name>dog-web Maven Webapp</name>
-    <url>http://maven.apache.org</url>
+    <name>dog-web</name>
 
     <dependencies>
         <!--核心模块-->
@@ -29,7 +28,7 @@
         <dependency>
             <groupId>com.dog</groupId>
             <artifactId>dog-controller</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0-RELEASES</version>
         </dependency>
         <!--博客模块-->
         <dependency>

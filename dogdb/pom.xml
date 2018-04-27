@@ -43,12 +43,6 @@
             <artifactId>spring-web</artifactId>
             <version>RELEASE</version>
         </dependency>
-        <dependency>
-            <groupId>com.dog</groupId>
-            <artifactId>dog-root</artifactId>
-            <version>1.0-Releases</version>
-        </dependency>
-
         <!--代码生成器-->
         <dependency>
             <groupId>junit</groupId>
